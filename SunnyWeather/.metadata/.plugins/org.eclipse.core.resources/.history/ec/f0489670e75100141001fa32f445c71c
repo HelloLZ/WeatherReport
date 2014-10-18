@@ -1,0 +1,65 @@
+package com.ustcweather.amarishappilees.http;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
+import java.net.URLDecoder;
+
+public class HttpOperate {
+
+	// private static final String BAIDU_URL =
+	// "http://api.map.baidu.com/telematics/v3/weather?location=苏州&output=json&ak=TCEidLyOvtLGbGccx9GLKnO6";
+
+	public HttpOperate() {
+	}
+
+	/*
+	 * public static String getResult() throws UnsupportedEncodingException {
+	 * URL url = null; String cityName= URLDecoder.decode("苏州", "UTF-8"); try {
+	 * url = new
+	 * URL("http://api.map.baidu.com/telematics/v3/weather?location="+cityName
+	 * +"&output=json&ak=TCEidLyOvtLGbGccx9GLKnO6"); } catch
+	 * (MalformedURLException e) { e.printStackTrace(); }
+	 * 
+	 * // 声明HttpURLConnection对象
+	 * 
+	 * URLConnection urlConn = null;
+	 * 
+	 * // 声明BufferedReader对象 BufferedReader buffer = null;
+	 * 
+	 * String inputLine = null; StringBuffer stringBuffer = new StringBuffer();
+	 * if (url != null) { try { urlConn = url.openConnection();
+	 * 
+	 * buffer = new BufferedReader(new InputStreamReader(
+	 * urlConn.getInputStream())); // 使用循环来读取数据 while ((inputLine =
+	 * buffer.readLine()) != null) { stringBuffer.append(inputLine + ""); } }
+	 * catch (IOException e) { e.printStackTrace(); } finally { try { if (buffer
+	 * != null) { buffer.close(); } } catch (IOException e) {
+	 * e.printStackTrace(); } } } return stringBuffer.toString(); }
+	 */
+	public static String getResult() throws java.lang.Exception {
+		StringBuffer sb = new StringBuffer();
+		String cityName = URLDecoder.decode("芜湖", "UTF-8");
+		try {
+			URL url = new URL(
+					"http://api.map.baidu.com/telematics/v3/weather?location="
+							+ cityName
+							+ "&output=json&ak=C67141d1bcecea8597ffeaf907e17aa3");
+			URLConnection conn = url.openConnection();
+			BufferedReader reader = new BufferedReader(new InputStreamReader(
+					conn.getInputStream()));
+			String line = null;
+			while ((line = reader.readLine()) != null) {
+				sb.append(line + "");
+			}
+			reader.close();
+			String json = sb.toString();
+			System.out.println(json);
+			return json;
+		} catch (java.lang.Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+}

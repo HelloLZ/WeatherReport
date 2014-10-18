@@ -1,0 +1,35 @@
+package com.ustcweather.amarishappilees.http;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
+import com.ustcweather.amarishappilees.weatherinfo.WeatherRelativeInfo;
+
+
+public class DecodeJson {
+	
+	public DecodeJson() {
+		
+	}
+
+	public static WeatherRelativeInfo getJsonInfo(String json) {
+		JSONObject decodeObject = JSONObject.fromObject(json);
+		
+		if(decodeObject.getInt("error") != 0) {
+			return null;
+		}
+		String status = decodeObject.getString("status");
+		String date = decodeObject.getString("date");
+		JSONArray results = decodeObject.getJSONArray("results");
+		JSONObject results0 = results.getJSONObject(0);
+		String currentCity = results0.getString("currentCity");
+		String pm = results0.getString("pm25");
+		
+		WeatherRelativeInfo weatherReInfo = new WeatherRelativeInfo();
+		weatherReInfo.setCurrentCity(currentCity);
+		weatherReInfo.setDate(date);
+		weatherReInfo.setPm(pm);
+		
+		return weatherReInfo;
+	}
+}

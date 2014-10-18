@@ -1,0 +1,30 @@
+package com.ustcweather.amarishappilees.http;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
+public class DecodeJson {
+	
+	private JSONObject decodeObject = null;
+	
+	public DecodeJson() {
+		
+	}
+	
+	public DecodeJson(String json) {
+		decodeObject = JSONObject.fromObject(json);
+	}
+	
+	public void getJsonInfo() {
+		
+		if(decodeObject.getInt("error") != 0) {
+			return;
+		}
+		String status = decodeObject.getString("status");
+		String date = decodeObject.getString("date");
+		JSONArray results = decodeObject.getJSONArray("results");
+		JSONObject results0 = results.getJSONObject(0);
+		String currentCity = results0.getString("currentCity");
+		String pm = results0.getString("pm25");
+	}
+}

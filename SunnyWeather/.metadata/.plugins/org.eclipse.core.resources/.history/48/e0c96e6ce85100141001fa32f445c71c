@@ -1,0 +1,103 @@
+package com.ustcweather.amarishappilees.http;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+
+public class HttpOperate {
+
+	// private static final String BAIDU_URL =
+	// "http://api.map.baidu.com/telematics/v3/weather?location=苏州&output=json&ak=TCEidLyOvtLGbGccx9GLKnO6";
+
+	public HttpOperate() {
+	}
+
+	/*
+	 * public static String getResult() throws UnsupportedEncodingException {
+	 * URL url = null; String cityName= URLDecoder.decode("苏州", "UTF-8"); try {
+	 * url = new
+	 * URL("http://api.map.baidu.com/telematics/v3/weather?location="+cityName
+	 * +"&output=json&ak=TCEidLyOvtLGbGccx9GLKnO6"); } catch
+	 * (MalformedURLException e) { e.printStackTrace(); }
+	 * 
+	 * // 声明HttpURLConnection对象
+	 * 
+	 * URLConnection urlConn = null;
+	 * 
+	 * // 声明BufferedReader对象 BufferedReader buffer = null;
+	 * 
+	 * String inputLine = null; StringBuffer stringBuffer = new StringBuffer();
+	 * if (url != null) { try { urlConn = url.openConnection();
+	 * 
+	 * buffer = new BufferedReader(new InputStreamReader(
+	 * urlConn.getInputStream())); // 使用循环来读取数据 while ((inputLine =
+	 * buffer.readLine()) != null) { stringBuffer.append(inputLine + ""); } }
+	 * catch (IOException e) { e.printStackTrace(); } finally { try { if (buffer
+	 * != null) { buffer.close(); } } catch (IOException e) {
+	 * e.printStackTrace(); } } } return stringBuffer.toString(); }
+	 
+	public static String getResult() throws java.lang.Exception {
+		StringBuffer sb = new StringBuffer();
+		String cityName = URLDecoder.decode("芜湖", "UTF-8");
+		try {
+			URL url = new URL(
+					"http://api.map.baidu.com/telematics/v3/weather?location="
+							+ cityName
+							+ "&output=json&ak=TCEidLyOvtLGbGccx9GLKnO6");
+			URLConnection conn = url.openConnection();
+			BufferedReader reader = new BufferedReader(new InputStreamReader(
+					conn.getInputStream(),"utf-8"));
+			String line = null;
+			while ((line = reader.readLine()) != null) {
+				sb.append(line + "");
+			}
+			reader.close();
+			String json = sb.toString();
+			System.out.println(json);
+			return json;
+		} catch (java.lang.Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}*/
+    public static String  getWeatherInform(String cityName){  
+        
+        //百度天气API  
+        String baiduUrl = "http://api.map.baidu.com/telematics/v3/weather?location=北京&output=json&ak=TCEidLyOvtLGbGccx9GLKnO6";  
+        StringBuffer strBuf;  
+  
+        try {                              
+                            //通过浏览器直接访问http://api.map.baidu.com/telematics/v3/weather?location=北京&output=json&ak=5slgyqGDENN7Sy7pw29IUvrZ  
+                            //5slgyqGDENN7Sy7pw29IUvrZ 是我自己申请的一个AK(许可码)，如果访问不了，可以自己去申请一个新的ak  
+                            //百度ak申请地址：http://lbsyun.baidu.com/apiconsole/key  
+                            //要访问的地址URL，通过URLEncoder.encode()函数对于中文进行转码                              
+            baiduUrl = "http://api.map.baidu.com/telematics/v3/weather?location="+URLEncoder.encode(cityName, "utf-8")+"&output=json&ak=5slgyqGDENN7Sy7pw29IUvrZ";                    
+        } catch (UnsupportedEncodingException e1) {               
+            e1.printStackTrace();                     
+        }  
+
+        strBuf = new StringBuffer();  
+              
+        try{  
+            URL url = new URL(baiduUrl);  
+            URLConnection conn = url.openConnection();  
+            BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream(),"utf-8"));//转码。  
+            String line = null;  
+            while ((line = reader.readLine()) != null)  
+                strBuf.append(line + " ");  
+                reader.close();  
+        }catch(MalformedURLException e) {  
+            e.printStackTrace();   
+        }catch(IOException e){  
+            e.printStackTrace();   
+        }     
+
+        return strBuf.toString();  
+    }  
+}
