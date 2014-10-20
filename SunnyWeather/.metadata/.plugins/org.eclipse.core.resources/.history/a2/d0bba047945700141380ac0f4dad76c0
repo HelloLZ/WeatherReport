@@ -21,7 +21,7 @@ public class DecodeJson {
 			if (jsonObj.getInt("error") != 0) {
 				return null;
 			}
-//			String status = jsonObj.getString("status");
+			String status = jsonObj.getString("status");
 			String date = jsonObj.getString("date");
 			
 			JSONArray results = jsonObj.getJSONArray("results");
@@ -39,21 +39,21 @@ public class DecodeJson {
 			
 			/*Tomorrow weather information*/
 			JSONObject weatherTomorrow = weatherData.getJSONObject(1);
-			String tomorrowDate = weatherTomorrow.getString("date");
-			String tomorrowWeather = weatherTomorrow.getString("weather");
-			String tomorrowTempera = weatherTomorrow.getString("temperature");
+			String tomorrowDate = weatherToday.getString("date");
+			String tomorrowWeather = weatherToday.getString("weather");
+			String tomorrowTempera = weatherToday.getString("temperature");
 			
 			/*The day after tomorrow weather information*/
 			JSONObject weatherAfTomo = weatherData.getJSONObject(2);
-			String afTomoDate = weatherAfTomo.getString("date");
-			String afTomoWeather = weatherAfTomo.getString("weather");
-			String afTomoTempera = weatherAfTomo.getString("temperature");
+			String afTomoDate = weatherToday.getString("date");
+			String afTomoWeather = weatherToday.getString("weather");
+			String afTomoTempera = weatherToday.getString("temperature");
 			
 			/*The last day weather information*/
 			JSONObject weatherLast = weatherData.getJSONObject(3);
-			String lastDate = weatherLast.getString("date");
-			String lastWeather = weatherLast.getString("weather");
-			String lastTempera = weatherLast.getString("temperature");
+			String lastDate = weatherToday.getString("date");
+			String lastWeather = weatherToday.getString("weather");
+			String lastTempera = weatherToday.getString("temperature");
 			
 			/*Set main information*/
 			WeatherRelativeInfo weatherReInfo = new WeatherRelativeInfo();

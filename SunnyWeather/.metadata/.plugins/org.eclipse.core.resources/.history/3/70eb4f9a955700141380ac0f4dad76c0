@@ -69,13 +69,7 @@ public class MainActivity extends ActionBarActivity implements
 			info = weatherReInfo.getCurrentCity() + "\n"
 					+ weatherReInfo.getdate() + "\n"
 					+ weatherReInfo.getPm() + "\n"
-					+ weatherReInfo.getTodayDate() + "\n"
-					+ weatherReInfo.getTodayTempera() + "\n"
-					+ weatherReInfo.getTodayWeather() + "\n"
-					+ weatherReInfo.getTodayWind() + "\n"
-					+ weatherReInfo.getTomorrowDate() + "\n"
-					+ weatherReInfo.getTomorrowTempera() + "\n"
-					+ weatherReInfo.getTomorrowWeather();
+					+ weatherReInfo.getTodayDate();
 
 			return info;
 		}

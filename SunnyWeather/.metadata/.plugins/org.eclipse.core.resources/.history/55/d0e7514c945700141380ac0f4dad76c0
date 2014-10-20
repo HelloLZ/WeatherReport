@@ -21,7 +21,7 @@ public class DecodeJson {
 			if (jsonObj.getInt("error") != 0) {
 				return null;
 			}
-//			String status = jsonObj.getString("status");
+			String status = jsonObj.getString("status");
 			String date = jsonObj.getString("date");
 			
 			JSONArray results = jsonObj.getJSONArray("results");
