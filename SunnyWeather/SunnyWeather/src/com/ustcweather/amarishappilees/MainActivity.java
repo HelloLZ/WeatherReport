@@ -36,10 +36,13 @@ public class MainActivity extends ActionBarActivity implements
 	 * {@link #restoreActionBar()}.
 	 */
 	private CharSequence mTitle;
+	private String[] weatherInfo;
 
-	private static TextView textView;
+	private static TextView textTodayTempera;
+	private static TextView textTodayWeather;
+	private static TextView textTodayUp;
+	private static TextView textTodayDown;
 
-	private static String info = null;
 	private String city = "Ыежн";
 	private static ExecutorService LIMITED_TASK_EXECUTOR  = (ExecutorService) Executors.newFixedThreadPool(7);
 
@@ -50,41 +53,40 @@ public class MainActivity extends ActionBarActivity implements
 		mNavigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager()
 				.findFragmentById(R.id.navigation_drawer);
 		mTitle = getTitle();
-
+		weatherInfo = new String[10];
 		// Set up the drawer.
 		mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
 				(DrawerLayout) findViewById(R.id.drawer_layout));
 		getData();
 	}
 	
-	class MyAsyncTask extends AsyncTask<String, Integer, String> {
+	class MyAsyncTask extends AsyncTask<String, Integer, String[]> {
 
 		@Override
-		protected String doInBackground(String... params) {
+		protected String[] doInBackground(String... params) {
 			// TODO Auto-generated method stub
-
+			
 			String httpGetString = HttpOperate.getWeatherInformation(city);
 			WeatherRelativeInfo weatherReInfo = new WeatherRelativeInfo();
 			weatherReInfo = DecodeJson.getJsonInfo(httpGetString);
-			info = weatherReInfo.getCurrentCity() + "\n"
-					+ weatherReInfo.getdate() + "\n"
-					+ weatherReInfo.getPm() + "\n"
-					+ weatherReInfo.getTodayDate() + "\n"
-					+ weatherReInfo.getTodayTempera() + "\n"
-					+ weatherReInfo.getTodayWeather() + "\n"
-					+ weatherReInfo.getTodayWind() + "\n"
-					+ weatherReInfo.getTomorrowDate() + "\n"
-					+ weatherReInfo.getTomorrowTempera() + "\n"
-					+ weatherReInfo.getTomorrowWeather();
+			weatherInfo[0] = weatherReInfo.getTodayWeather(); 
+			String todayDate = weatherReInfo.getTodayDate();
+			weatherInfo[1] = todayDate.substring(14, 16);
+			String todayTempRange = weatherReInfo.getTodayTempera();
+			weatherInfo[2] = todayTempRange.substring(0, 3);
+			weatherInfo[3] = todayTempRange.substring(3);
 
-			return info;
+			return weatherInfo;
 		}
 
 		@Override
-		protected void onPostExecute(String result) {
+		protected void onPostExecute(String[] result) {
 			// TODO Auto-generated method stub
 			// super.onPostExecute(result);
-			textView.setText(info);
+			textTodayTempera.setText(weatherInfo[1]);
+			textTodayWeather.setText(weatherInfo[0]);
+			textTodayUp.setText(weatherInfo[2]);
+			textTodayDown.setText(weatherInfo[3]);
 		}
 	}
 	
@@ -144,7 +146,7 @@ public class MainActivity extends ActionBarActivity implements
 			getMenuInflater().inflate(R.menu.main, menu);
 			restoreActionBar();
 			return true;
-		}
+		} 
 		return super.onCreateOptionsMenu(menu);
 	}
 
@@ -189,9 +191,11 @@ public class MainActivity extends ActionBarActivity implements
 				Bundle savedInstanceState) {
 			View rootView = inflater.inflate(R.layout.fragment_main, container,
 					false);
-			textView = (TextView) rootView.findViewById(R.id.section_label);
-			
-			// textView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
+			textTodayTempera = (TextView) rootView.findViewById(R.id.textView_today_temperature);
+			textTodayWeather = (TextView) rootView.findViewById(R.id.textView_today_weather);
+			textTodayUp= (TextView) rootView.findViewById(R.id.textView_today_up);
+			textTodayDown = (TextView) rootView.findViewById(R.id.textView_today_down);
+
 			return rootView;
 		}
 

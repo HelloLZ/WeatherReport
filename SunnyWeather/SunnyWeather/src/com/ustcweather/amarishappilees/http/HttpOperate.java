@@ -19,10 +19,11 @@ public class HttpOperate {
 		// 百度天气API
 		String baiduUrl = null;
 		StringBuffer strBuf;
+
 		try {
 			baiduUrl = "http://api.map.baidu.com/telematics/v3/weather?location="
 					+ URLEncoder.encode(cityName, "utf-8")
-					+ "&output=json&ak=s9ViARFrDGNFxW8tZyoQY4m7";
+					+ "&output=json&ak=s9ViARFrDGNFxW8tZyoQY4m7";			
 		} catch (UnsupportedEncodingException e1) {
 			e1.printStackTrace();
 		}

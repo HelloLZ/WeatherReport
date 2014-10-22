@@ -4,6 +4,9 @@
 		<item value="600" key="width"/>
 		<item value="400" key="height"/>
 	</section>
+	<section name="org.eclipse.ltk.ui.refactoring.settings">
+		<item value="true" key="deleteSubPackages"/>
+	</section>
 	<section name="RefactoringStatusDialog">
 		<item value="816" key="DIALOG_WIDTH"/>
 		<item value="1|yuangungun|9.0|1|WINDOWS|1|-12|0|0|0|700|0|0|0|-122|0|0|0|0|yuangungun" key="DIALOG_FONT_NAME"/>

@@ -24,4 +24,7 @@
 <fullyQualifiedTypeName name="java.io.UnsupportedEncodingException"/>
 <fullyQualifiedTypeName name="java.util.concurrent.ExecutorService"/>
 <fullyQualifiedTypeName name="java.util.concurrent.Executors"/>
+<fullyQualifiedTypeName name="com.ustcweather.amarishappilees.R"/>
+<fullyQualifiedTypeName name="com.ustcweather.amarishappilees.R.id"/>
+<fullyQualifiedTypeName name="com.ustcweather.amarishappilees.R.string"/>
 </qualifiedTypeNameHistroy>

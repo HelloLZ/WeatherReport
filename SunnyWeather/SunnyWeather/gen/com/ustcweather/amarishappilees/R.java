@@ -15,6 +15,9 @@ public final class R {
         public static final int abc_slide_in_top=0x7f040003;
         public static final int abc_slide_out_bottom=0x7f040004;
         public static final int abc_slide_out_top=0x7f040005;
+        public static final int pull_arrow_down=0x7f040006;
+        public static final int pull_arrow_up=0x7f040007;
+        public static final int update_loading_progressbar_anim=0x7f040008;
     }
     public static final class attr {
         /**  Custom divider drawable to use for elements in the action bar. 
@@ -994,6 +997,45 @@ containing a value of this type.
     
          */
         public static final int navigation_drawer_width=0x7f080017;
+        /**  ViewPager的间隔 
+         */
+        public static final int pciture_view_pager_margin=0x7f080018;
+        /**  工具栏上按钮的间距 
+         */
+        public static final int picture_action_bar_button_margin=0x7f080019;
+        public static final int picture_action_bar_height=0x7f08001a;
+        /**  工具栏上显示1/6文字的字体大小 
+         */
+        public static final int picture_action_bar_page_index_text_size=0x7f080024;
+        public static final int picture_album_column_margin=0x7f080021;
+        public static final int picture_album_item_title_height=0x7f080023;
+        public static final int picture_album_text_margin=0x7f080020;
+        /**  图集标题字体大小 
+         */
+        public static final int picture_album_title_text_size=0x7f08001c;
+        public static final int picture_album_top_margin=0x7f080022;
+        /**  图集View的间隔 
+         */
+        public static final int picture_album_view_margin=0x7f08001e;
+        public static final int picture_album_view_margin_bottom=0x7f08001f;
+        /**  图集中图片数量字体大小 
+         */
+        public static final int picture_count_text_size=0x7f08001d;
+        /**  正在加载文本上边距 
+         */
+        public static final int picture_loading_text_top_margin=0x7f080026;
+        public static final int picture_pull_to_refresh_footer_height=0x7f08002a;
+        public static final int picture_pull_to_refresh_last_update_time_text_size=0x7f080028;
+        public static final int picture_pull_to_refresh_last_update_time_top_margin=0x7f080029;
+        /**  下拉刷新字体 
+         */
+        public static final int picture_pull_to_refresh_loading_text_size=0x7f080027;
+        /**  重新加载文字字体大小 
+         */
+        public static final int picture_reload_text_size=0x7f08001b;
+        /**  用户引导边距 
+         */
+        public static final int picture_user_guide_margin=0x7f080025;
     }
     public static final class drawable {
         public static final int abc_ab_bottom_solid_dark_holo=0x7f020000;
@@ -1083,9 +1125,13 @@ containing a value of this type.
         public static final int abc_textfield_searchview_holo_light=0x7f020054;
         public static final int abc_textfield_searchview_right_holo_dark=0x7f020055;
         public static final int abc_textfield_searchview_right_holo_light=0x7f020056;
-        public static final int drawer_shadow=0x7f020057;
-        public static final int ic_drawer=0x7f020058;
-        public static final int ic_launcher=0x7f020059;
+        public static final int default_ptr_rotate=0x7f020057;
+        public static final int drawer_shadow=0x7f020058;
+        public static final int ic_drawer=0x7f020059;
+        public static final int ic_launcher=0x7f02005a;
+        public static final int test=0x7f02005b;
+        public static final int xsearch_loading=0x7f02005c;
+        public static final int xsearch_msg_pull_arrow_down=0x7f02005d;
     }
     public static final class id {
         public static final int action_bar=0x7f05001c;
@@ -1096,11 +1142,11 @@ containing a value of this type.
         public static final int action_bar_subtitle=0x7f050023;
         public static final int action_bar_title=0x7f050022;
         public static final int action_context_bar=0x7f05001d;
-        public static final int action_example=0x7f050042;
+        public static final int action_example=0x7f050054;
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050024;
-        public static final int action_settings=0x7f050041;
+        public static final int action_settings=0x7f050053;
         public static final int activity_chooser_view_content=0x7f050025;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
@@ -1121,6 +1167,10 @@ containing a value of this type.
         public static final int icon=0x7f05002a;
         public static final int ifRoom=0x7f05000a;
         public static final int image=0x7f050027;
+        public static final int imageView_today_devide=0x7f050041;
+        public static final int imageView_today_down=0x7f050044;
+        public static final int imageView_today_up=0x7f050046;
+        public static final int imageView_today_weather=0x7f050042;
         public static final int listMode=0x7f050001;
         public static final int list_item=0x7f050029;
         public static final int middle=0x7f050012;
@@ -1130,8 +1180,19 @@ containing a value of this type.
         public static final int normal=0x7f050000;
         public static final int progress_circular=0x7f050018;
         public static final int progress_horizontal=0x7f050019;
+        public static final int pull_to_load_footer_content=0x7f050049;
+        public static final int pull_to_load_footer_hint_textview=0x7f05004b;
+        public static final int pull_to_load_footer_progressbar=0x7f05004a;
+        public static final int pull_to_refresh_header_arrow=0x7f050051;
+        public static final int pull_to_refresh_header_content=0x7f05004c;
+        public static final int pull_to_refresh_header_hint_textview=0x7f05004e;
+        public static final int pull_to_refresh_header_progressbar=0x7f050052;
+        public static final int pull_to_refresh_header_text=0x7f05004d;
+        public static final int pull_to_refresh_header_time=0x7f050050;
+        public static final int pull_to_refresh_last_update_time_text=0x7f05004f;
+        public static final int pull_webview=0x7f050048;
         public static final int radio=0x7f05002f;
-        public static final int scrollView1=0x7f05003f;
+        public static final int scrollView_all=0x7f05003f;
         public static final int search_badge=0x7f050032;
         public static final int search_bar=0x7f050031;
         public static final int search_button=0x7f050033;
@@ -1142,7 +1203,6 @@ containing a value of this type.
         public static final int search_plate=0x7f050036;
         public static final int search_src_text=0x7f050037;
         public static final int search_voice_btn=0x7f05003b;
-        public static final int section_label=0x7f050040;
         public static final int shortcut=0x7f05002e;
         public static final int showCustom=0x7f050007;
         public static final int showHome=0x7f050004;
@@ -1150,6 +1210,10 @@ containing a value of this type.
         public static final int split_action_bar=0x7f05001e;
         public static final int submit_area=0x7f050039;
         public static final int tabMode=0x7f050002;
+        public static final int textView_today_down=0x7f050045;
+        public static final int textView_today_temperature=0x7f050040;
+        public static final int textView_today_up=0x7f050047;
+        public static final int textView_today_weather=0x7f050043;
         public static final int title=0x7f05002b;
         public static final int top_action_bar=0x7f050020;
         public static final int up=0x7f050021;
@@ -1209,7 +1273,12 @@ containing a value of this type.
         public static final int activity_main=0x7f030018;
         public static final int fragment_main=0x7f030019;
         public static final int fragment_navigation_drawer=0x7f03001a;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001b;
+        public static final int list_select_city=0x7f03001b;
+        public static final int pull_refresh_webview=0x7f03001c;
+        public static final int pull_to_load_footer=0x7f03001d;
+        public static final int pull_to_refresh_header=0x7f03001e;
+        public static final int pull_to_refresh_header2=0x7f03001f;
+        public static final int support_simple_spinner_dropdown_item=0x7f030020;
     }
     public static final class menu {
         public static final int global=0x7f0c0000;
@@ -1256,14 +1325,50 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abc_shareactionprovider_share_with_application=0x7f0a000b;
-        public static final int action_example=0x7f0a0013;
-        public static final int action_settings=0x7f0a0014;
-        public static final int app_name=0x7f0a000d;
-        public static final int navigation_drawer_close=0x7f0a0012;
-        public static final int navigation_drawer_open=0x7f0a0011;
-        public static final int title_section1=0x7f0a000e;
-        public static final int title_section2=0x7f0a000f;
-        public static final int title_section3=0x7f0a0010;
+        public static final int action_example=0x7f0a0029;
+        public static final int action_settings=0x7f0a002a;
+        public static final int app_name=0x7f0a0023;
+        public static final int des=0x7f0a002f;
+        public static final int navigation_drawer_close=0x7f0a0028;
+        public static final int navigation_drawer_open=0x7f0a0027;
+        /**  加载中提示 
+         */
+        public static final int picture_image_loading=0x7f0a0015;
+        /**  加载图片失败时的提示文本 
+         */
+        public static final int picture_load_image_failed=0x7f0a0014;
+        public static final int picture_next_album=0x7f0a0021;
+        public static final int picture_previous_album=0x7f0a0022;
+        public static final int picture_save_fail=0x7f0a0020;
+        /**  图片保存的文字 
+         */
+        public static final int picture_save_succeed=0x7f0a001f;
+        public static final int pull_to_refresh_footer_hint_ready=0x7f0a001b;
+        public static final int pull_to_refresh_header_hint_loading=0x7f0a0019;
+        /**  下拉刷新和上拉加载更多的文本 
+         */
+        public static final int pull_to_refresh_header_hint_normal=0x7f0a0016;
+        public static final int pull_to_refresh_header_hint_normal2=0x7f0a0017;
+        public static final int pull_to_refresh_header_hint_ready=0x7f0a0018;
+        public static final int pull_to_refresh_header_last_time=0x7f0a001a;
+        public static final int pull_to_refresh_network_error=0x7f0a001e;
+        public static final int pull_to_refresh_no_more_data=0x7f0a001d;
+        public static final int pull_to_refresh_refreshing_label=0x7f0a001c;
+        public static final int pushmsg_center_load_more_ongoing_text=0x7f0a0012;
+        public static final int pushmsg_center_no_more_msg=0x7f0a000d;
+        public static final int pushmsg_center_pull_down_text=0x7f0a000f;
+        public static final int pushmsg_center_pull_down_update_time=0x7f0a0011;
+        public static final int pushmsg_center_pull_release_text=0x7f0a0010;
+        public static final int pushmsg_center_pull_up_text=0x7f0a000e;
+        public static final int select_city=0x7f0a0030;
+        public static final int title_section1=0x7f0a0024;
+        public static final int title_section2=0x7f0a0025;
+        public static final int title_section3=0x7f0a0026;
+        public static final int today_down=0x7f0a002d;
+        public static final int today_temperature=0x7f0a002b;
+        public static final int today_up=0x7f0a002e;
+        public static final int today_weather=0x7f0a002c;
+        public static final int xsearch_loading=0x7f0a0013;
     }
     public static final class style {
         /** 

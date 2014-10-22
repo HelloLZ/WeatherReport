@@ -64,6 +64,7 @@ public class DecodeJson {
 			/*Set today weather information*/
 			weatherReInfo.setTodayDate(todayDate);
 			weatherReInfo.setTodayTempera(todayTempera);
+//			weatherReInfo.setTodayTemperaMore(todayTemperaMore);
 			weatherReInfo.setTodayWeather(todayWeather);
 			weatherReInfo.setTodayWind(todayWind);
 			

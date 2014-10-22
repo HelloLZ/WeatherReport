@@ -10,6 +10,7 @@ public class WeatherRelativeInfo {
 	private String todayWeather = null;
 	private String todayWind = null;
 	private String todayTempera = null;
+//	private String todayTemperaMore = null;
 	
 	private String tomorrowDate = null;
 	private String tomorrowWeather = null;
@@ -80,6 +81,14 @@ public class WeatherRelativeInfo {
 		this.todayTempera = todayTempera;
 	}
 	
+/*	public String getTodayTemperaMore() {
+		return this.todayTemperaMore;
+	}
+	
+	public void setTodayTemperaMore(String todayTemperaMore) {
+		this.todayTemperaMore = todayTemperaMore;
+	}
+*/	
 	public String getTodayTempera() {
 		return this.todayTempera;
 	}
