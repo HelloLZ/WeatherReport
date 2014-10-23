@@ -24,7 +24,24 @@
 <fullyQualifiedTypeName name="java.io.UnsupportedEncodingException"/>
 <fullyQualifiedTypeName name="java.util.concurrent.ExecutorService"/>
 <fullyQualifiedTypeName name="java.util.concurrent.Executors"/>
+<fullyQualifiedTypeName name="android.widget.BaseAdapter"/>
+<fullyQualifiedTypeName name="android.content.Context"/>
+<fullyQualifiedTypeName name="android.view.LayoutInflater"/>
+<fullyQualifiedTypeName name="android.view.ViewGroup"/>
+<fullyQualifiedTypeName name="android.view.View"/>
+<fullyQualifiedTypeName name="android.widget.TextView"/>
+<fullyQualifiedTypeName name="android.widget.Button"/>
+<fullyQualifiedTypeName name="android.R"/>
+<fullyQualifiedTypeName name="android.R.layout"/>
 <fullyQualifiedTypeName name="com.ustcweather.amarishappilees.R"/>
+<fullyQualifiedTypeName name="com.ustcweather.amarishappilees.R.layout"/>
 <fullyQualifiedTypeName name="com.ustcweather.amarishappilees.R.id"/>
+<fullyQualifiedTypeName name="android.widget.ListAdapter"/>
+<fullyQualifiedTypeName name="com.ustcweather.amarishappilees.ui.MyCityEntity"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.ustcweather.amarishappilees.ui.CityListAdapter"/>
 <fullyQualifiedTypeName name="com.ustcweather.amarishappilees.R.string"/>
+<fullyQualifiedTypeName name="android.support.v7.internal.widget.AdapterViewICS.OnItemClickListener"/>
+<fullyQualifiedTypeName name="android.widget.AdapterView.OnItemClickListener"/>
 </qualifiedTypeNameHistroy>

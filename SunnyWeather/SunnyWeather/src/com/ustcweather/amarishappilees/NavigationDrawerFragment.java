@@ -1,6 +1,13 @@
 package com.ustcweather.amarishappilees;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.support.v7.app.ActionBarActivity;
+
+import com.ustcweather.amarishappilees.ui.CityListAdapter;
+import com.ustcweather.amarishappilees.ui.MyCityEntity;
+
 import android.app.Activity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -18,6 +25,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -27,7 +35,7 @@ import android.widget.Toast;
  * See the <a href="https://developer.android.com/design/patterns/navigation-drawer.html#Interaction">
  * design guidelines</a> for a complete explanation of the behaviors implemented here.
  */
-public class NavigationDrawerFragment extends Fragment {
+public class NavigationDrawerFragment extends Fragment implements OnItemClickListener{
 
     /**
      * Remember the position of the selected item.
@@ -52,6 +60,8 @@ public class NavigationDrawerFragment extends Fragment {
 
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerListView;
+    private CityListAdapter myCityAdapter;
+    private List<MyCityEntity> myCityList = new ArrayList<MyCityEntity>();
     private View mFragmentContainerView;
 
     private int mCurrentSelectedPosition = 0;
@@ -61,6 +71,10 @@ public class NavigationDrawerFragment extends Fragment {
     public NavigationDrawerFragment() {
     }
 
+    public void initList() {
+    	myCityAdapter = new CityListAdapter(getActionBar().getThemedContext(), myCityList);
+    	mDrawerListView.setAdapter(myCityAdapter);
+    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,7 +90,7 @@ public class NavigationDrawerFragment extends Fragment {
         }
 
         // Select either the default item (0) or the last selected item.
-        selectItem(mCurrentSelectedPosition);
+        selectItem(mCurrentSelectedPosition, "³É¶¼");
     }
 
     @Override
@@ -86,12 +100,12 @@ public class NavigationDrawerFragment extends Fragment {
         setHasOptionsMenu(true);
     }
 
-    @Override
+	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         mDrawerListView = (ListView) inflater.inflate(
                 R.layout.fragment_navigation_drawer, container, false);
-        mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+  /*      mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 selectItem(position);
@@ -106,10 +120,24 @@ public class NavigationDrawerFragment extends Fragment {
                         getString(R.string.title_section2),
                         getString(R.string.title_section3),
                 }));
+*/     
+        mDrawerListView.setOnItemClickListener(this);
+        initList( ); 
+        MyCityEntity entity = new MyCityEntity();
+        entity.setMyCityName(getString(R.string.title_section1));
+        myCityList.add(entity);
+        myCityAdapter.notifyDataSetChanged();
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;
     }
 
+	@Override
+    public void onItemClick(AdapterView<?> parent, View view, int position,long id) {
+		MyCityEntity entity = myCityList.get(position);
+		
+		selectItem(position, entity.getMyCityName());
+	}
+	
     public boolean isDrawerOpen() {
         return mDrawerLayout != null && mDrawerLayout.isDrawerOpen(mFragmentContainerView);
     }
@@ -188,7 +216,7 @@ public class NavigationDrawerFragment extends Fragment {
         mDrawerLayout.setDrawerListener(mDrawerToggle);
     }
 
-    private void selectItem(int position) {
+    private void selectItem(int position, String myCityName) {
         mCurrentSelectedPosition = position;
         if (mDrawerListView != null) {
             mDrawerListView.setItemChecked(position, true);
@@ -197,7 +225,7 @@ public class NavigationDrawerFragment extends Fragment {
             mDrawerLayout.closeDrawer(mFragmentContainerView);
         }
         if (mCallbacks != null) {
-            mCallbacks.onNavigationDrawerItemSelected(position);
+            mCallbacks.onNavigationDrawerItemSelected(position,  myCityName);
         }
     }
 
@@ -277,6 +305,7 @@ public class NavigationDrawerFragment extends Fragment {
         /**
          * Called when an item in the navigation drawer is selected.
          */
-        void onNavigationDrawerItemSelected(int position);
+ //       void onNavigationDrawerItemSelected(int position);
+    	void onNavigationDrawerItemSelected(int position, String myCityName);
     }
 }

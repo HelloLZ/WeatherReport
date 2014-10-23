@@ -5,6 +5,7 @@ import java.util.concurrent.Executors;
 
 import com.ustcweather.amarishappilees.http.DecodeJson;
 import com.ustcweather.amarishappilees.http.HttpOperate;
+import com.ustcweather.amarishappilees.ui.MyCityEntity;
 import com.ustcweather.amarishappilees.weatherinfo.WeatherRelativeInfo;
 
 import android.app.Activity;
@@ -21,6 +22,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity implements
 		NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -53,10 +55,11 @@ public class MainActivity extends ActionBarActivity implements
 		mNavigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager()
 				.findFragmentById(R.id.navigation_drawer);
 		mTitle = getTitle();
-		weatherInfo = new String[10];
 		// Set up the drawer.
 		mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
 				(DrawerLayout) findViewById(R.id.drawer_layout));
+		
+		weatherInfo = new String[10];
 		getData();
 	}
 	
@@ -71,10 +74,10 @@ public class MainActivity extends ActionBarActivity implements
 			weatherReInfo = DecodeJson.getJsonInfo(httpGetString);
 			weatherInfo[0] = weatherReInfo.getTodayWeather(); 
 			String todayDate = weatherReInfo.getTodayDate();
-			weatherInfo[1] = todayDate.substring(14, 16);
+			weatherInfo[1] = todayDate;//.substring(9, 11);
 			String todayTempRange = weatherReInfo.getTodayTempera();
 			weatherInfo[2] = todayTempRange.substring(0, 3);
-			weatherInfo[3] = todayTempRange.substring(3);
+			weatherInfo[3] = todayTempRange.substring(5);
 
 			return weatherInfo;
 		}
@@ -101,20 +104,22 @@ public class MainActivity extends ActionBarActivity implements
 	}
 
 	@Override
-	public void onNavigationDrawerItemSelected(int position) {
+	public void onNavigationDrawerItemSelected(int position, String myCityName) {
 		// update the main content by replacing fragments
 		FragmentManager fragmentManager = getSupportFragmentManager();
 		fragmentManager
 				.beginTransaction()
 				.replace(R.id.container,
 						PlaceholderFragment.newInstance(position + 1)).commit();
+		city = myCityName;
 	}
 
 	public void onSectionAttached(int number) {
-		switch (number) {
+		switch (1) {
 		case 1:
-			mTitle = getString(R.string.title_section1);
-			city = "Ыежн";
+//			mTitle = getString(R.string.title_section1);
+			mTitle = city;
+//			city = "Ыежн";
 			getData();
 			break;
 		case 2:
