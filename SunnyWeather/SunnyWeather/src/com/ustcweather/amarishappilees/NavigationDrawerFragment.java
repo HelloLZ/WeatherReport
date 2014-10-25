@@ -14,6 +14,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -26,7 +27,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -275,8 +275,10 @@ public class NavigationDrawerFragment extends Fragment implements OnItemClickLis
             return true;
         }
 
-        if (item.getItemId() == R.id.action_example) {
-            Toast.makeText(getActivity(), "Example action.", Toast.LENGTH_SHORT).show();
+        if (item.getItemId() == R.id.add_city) {
+  //          Toast.makeText(getActivity(), "Example action.", Toast.LENGTH_SHORT).show();
+    		Intent intent = new Intent(getActivity(), CityActivity.class);
+    		startActivity(intent);
             return true;
         }
 

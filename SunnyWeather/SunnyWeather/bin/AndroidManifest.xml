@@ -33,6 +33,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <activity
+            android:label="City Activity"
+            android:name="com.ustcweather.amarishappilees.CityActivity">
+            <intent-filter>
+                <action android:name="com.ustcweather.amarishappilees.CityActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

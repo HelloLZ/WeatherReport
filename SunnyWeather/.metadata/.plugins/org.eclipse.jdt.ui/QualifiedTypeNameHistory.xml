@@ -28,12 +28,10 @@
 <fullyQualifiedTypeName name="android.content.Context"/>
 <fullyQualifiedTypeName name="android.view.LayoutInflater"/>
 <fullyQualifiedTypeName name="android.view.ViewGroup"/>
-<fullyQualifiedTypeName name="android.view.View"/>
 <fullyQualifiedTypeName name="android.widget.TextView"/>
 <fullyQualifiedTypeName name="android.widget.Button"/>
 <fullyQualifiedTypeName name="android.R"/>
 <fullyQualifiedTypeName name="android.R.layout"/>
-<fullyQualifiedTypeName name="com.ustcweather.amarishappilees.R"/>
 <fullyQualifiedTypeName name="com.ustcweather.amarishappilees.R.layout"/>
 <fullyQualifiedTypeName name="com.ustcweather.amarishappilees.R.id"/>
 <fullyQualifiedTypeName name="android.widget.ListAdapter"/>
@@ -44,4 +42,18 @@
 <fullyQualifiedTypeName name="com.ustcweather.amarishappilees.R.string"/>
 <fullyQualifiedTypeName name="android.support.v7.internal.widget.AdapterViewICS.OnItemClickListener"/>
 <fullyQualifiedTypeName name="android.widget.AdapterView.OnItemClickListener"/>
+<fullyQualifiedTypeName name="android.widget.Toast"/>
+<fullyQualifiedTypeName name="com.ustcweather.amarishappilees.R"/>
+<fullyQualifiedTypeName name="android.support.v4.app.FragmentActivity"/>
+<fullyQualifiedTypeName name="android.support.v4.app.FragmentManager"/>
+<fullyQualifiedTypeName name="android.support.v4.app.FragmentTransaction"/>
+<fullyQualifiedTypeName name="android.view.Menu"/>
+<fullyQualifiedTypeName name="android.app.Activity"/>
+<fullyQualifiedTypeName name="android.view.View"/>
+<fullyQualifiedTypeName name="android.os.Bundle"/>
+<fullyQualifiedTypeName name="android.widget.ArrayAdapter"/>
+<fullyQualifiedTypeName name="android.widget.ListView"/>
+<fullyQualifiedTypeName name="android.support.v4.app.ListFragment"/>
+<fullyQualifiedTypeName name="com.ustcweather.amarishappilees.ProvinceFragment.OnItemClickedListener"/>
+<fullyQualifiedTypeName name="android.content.Intent"/>
 </qualifiedTypeNameHistroy>

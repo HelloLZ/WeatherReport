@@ -4,8 +4,8 @@
     tools:context="com.ustcweather.amarishappilees.MainActivity" >
 
     <item
-        android:id="@+id/action_example"
-        android:title="@string/action_example"      
+        android:id="@+id/add_city"
+        android:title="@string/add_city"      
 		app:showAsAction="withText|ifRoom" />
     
     <item
