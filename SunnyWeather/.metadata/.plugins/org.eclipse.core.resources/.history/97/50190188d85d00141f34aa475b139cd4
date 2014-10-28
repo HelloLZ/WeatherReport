@@ -1,0 +1,29 @@
+package com.ustcweather.amarishappilees.db;
+
+import java.io.File;
+
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
+public class DataBase {
+	
+	public DataBase() {
+		
+	}
+	
+	public void readDataBase(String dbPath) {
+		File dbFile = new File(dbPath);
+		if(!dbFile.exists()) {
+			return ;
+		}
+		SQLiteDatabase db = SQLiteDatabase.openDatabase(dbPath, null, SQLiteDatabase.OPEN_READWRITE);
+		StringBuffer sb = new StringBuffer();
+		Cursor cursor = db.rawQuery("select * from china_provinces_code", null);
+		while(cursor.moveToNext()) {
+			int id = cursor.getInt(cursor.getColumnIndex("_id"));    
+            String name = cursor.getString(cursor.getColumnIndex("name"));    
+            sb.append(id + ":" + name + " \n"); 
+		}
+		System.out.println(sb.toString());
+	}
+}

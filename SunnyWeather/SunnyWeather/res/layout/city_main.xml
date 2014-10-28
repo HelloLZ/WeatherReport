@@ -12,17 +12,18 @@
     tools:context=".CityActivity" >
 
     <fragment
-        android:id="@+id/listfragment"
-        android:layout_width="160dp"
-        android:layout_height="match_parent"
-        class="com.ustcweather.amarishappilees.ProvinceFragment" />
+        android:name="com.ustcweather.amarishappilees.ProvinceFragment" 
+        android:id="@+id/province_fragment"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"/>
 
     <fragment
-        android:id="@+id/fragment1"
-        android:name="android.support.v4.app.ListFragment"
-        android:layout_width="160dp"
-        android:layout_height="match_parent" 
-        class="com.ustcweather.amarishappilees.CityFragment"/>
+        android:name="com.ustcweather.amarishappilees.CityFragment"
+        android:id="@+id/city_fragment"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent" />
 
 
 

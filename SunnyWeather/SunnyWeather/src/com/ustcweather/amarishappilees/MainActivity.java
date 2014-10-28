@@ -5,7 +5,6 @@ import java.util.concurrent.Executors;
 
 import com.ustcweather.amarishappilees.http.DecodeJson;
 import com.ustcweather.amarishappilees.http.HttpOperate;
-import com.ustcweather.amarishappilees.ui.MyCityEntity;
 import com.ustcweather.amarishappilees.weatherinfo.WeatherRelativeInfo;
 
 import android.app.Activity;
@@ -22,7 +21,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity implements
 		NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -43,11 +41,11 @@ public class MainActivity extends ActionBarActivity implements
 	private static TextView textTodayTempera;
 	private static TextView textTodayWeather;
 	private static TextView textTodayUp;
-	private static TextView textTodayDown;
+//	private static TextView textTodayDown;
 	
-	private static TextView textWind;
-	private static TextView textPm;
-	private static TextView textWetValue;
+//	private static TextView textWind;
+//	private static TextView textPm;
+//	private static TextView textWetValue;
 	private static TextView textWindValue;
 	private static TextView textPmValue;
 	
@@ -98,7 +96,7 @@ public class MainActivity extends ActionBarActivity implements
 			weatherInfo[1] = todayDate.substring(14, 16);
 			String todayTempRange = weatherReInfo.getTodayTempera();
 			weatherInfo[2] = todayTempRange.substring(0, 2);
-			weatherInfo[3] = todayTempRange.substring(5, 7);
+//			weatherInfo[3] = todayTempRange.substring(5, 7);
 			
 			weatherInfo[4] = weatherReInfo.getTodayWind();
 			weatherInfo[5] = weatherReInfo.getPm();
@@ -127,7 +125,7 @@ public class MainActivity extends ActionBarActivity implements
 			textTodayTempera.setText(weatherInfo[1]);
 			textTodayWeather.setText(weatherInfo[0]);
 			textTodayUp.setText(weatherInfo[2]);
-			textTodayDown.setText(weatherInfo[3]);
+//			textTodayDown.setText(weatherInfo[3]);
 			
 			textWindValue.setText(weatherInfo[4]);
 			textPmValue.setText(weatherInfo[5]);
@@ -257,10 +255,10 @@ public class MainActivity extends ActionBarActivity implements
 			textTodayTempera = (TextView) rootView.findViewById(R.id.textView_today_temperature);
 			textTodayWeather = (TextView) rootView.findViewById(R.id.textView_today_weather);
 			textTodayUp= (TextView) rootView.findViewById(R.id.textView_today_up);
-			textTodayDown = (TextView) rootView.findViewById(R.id.textView_today_down);
-			textWind = (TextView) rootView.findViewById(R.id.textView_wind);
-			textPm = (TextView) rootView.findViewById(R.id.textView_pm);
-			textWetValue = (TextView) rootView.findViewById(R.id.textView_wet_value);
+//			textTodayDown = (TextView) rootView.findViewById(R.id.textView_today_down);
+//			textWind = (TextView) rootView.findViewById(R.id.textView_wind);
+//			textPm = (TextView) rootView.findViewById(R.id.textView_pm);
+//			textWetValue = (TextView) rootView.findViewById(R.id.textView_wet_value);
 			textWindValue = (TextView) rootView.findViewById(R.id.textView_wind_value);
 			textPmValue = (TextView) rootView.findViewById(R.id.textView_pm_value);			
 			textAAToday = (TextView) rootView.findViewById(R.id.textView_compare_aatoday);

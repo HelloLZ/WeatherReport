@@ -1,0 +1,26 @@
+package com.ustcweather.amarishappilees;
+
+import com.ustcweather.amarishappilees.db.DataBase;
+
+import android.content.Context;
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+
+
+public class CityActivity extends FragmentActivity {
+	
+	private static Context context;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.city_main);	
+		initCityDatabase();
+	} 
+	
+	public void initCityDatabase() { 
+		DataBase cityDB = new DataBase();
+		cityDB.copyDataBase(context);
+		cityDB.readDataBase();
+	}
+}
+
