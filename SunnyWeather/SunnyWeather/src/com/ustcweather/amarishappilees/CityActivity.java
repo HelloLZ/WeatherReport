@@ -3,11 +3,14 @@ package com.ustcweather.amarishappilees;
 import com.ustcweather.amarishappilees.db.DataBase;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 
 
-public class CityActivity extends FragmentActivity {
+public class CityActivity extends FragmentActivity implements CityFragment.CityDrawerCallbacks{
+	
+
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +23,22 @@ public class CityActivity extends FragmentActivity {
 		Context context = getApplicationContext();
 		DataBase cityDB = new DataBase();
 		cityDB.copyDataBase(context);
+	}
+	
+    public void onBackPressed() {
+		Intent intent = new Intent(this,MainActivity.class);		
+		startActivity(intent);
+		finish();
+    	return;
+    }
+    
+	@Override
+	public void onCityItemSelected(String myCityName) {
+		// update the main content by replacing fragments
+		Bundle bundle = new Bundle();
+		bundle.putString("cityName", myCityName);
+		CityActivity.this.setResult(RESULT_OK, this.getIntent().putExtras(bundle));
+		CityActivity.this.finish();
 	}
 }
 

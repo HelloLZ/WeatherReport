@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding//src/com/ustcweather/amarishappilees/CityActivity.java=UTF-8
+encoding//src/com/ustcweather/amarishappilees/db/DataBase.java=UTF-8
 encoding//src/com/ustcweather/amarishappilees/ui/FooterLoadingLayout.java=UTF-8
 encoding//src/com/ustcweather/amarishappilees/ui/HeaderLoadingLayout.java=UTF-8
 encoding//src/com/ustcweather/amarishappilees/ui/IPullToRefresh.java=UTF-8

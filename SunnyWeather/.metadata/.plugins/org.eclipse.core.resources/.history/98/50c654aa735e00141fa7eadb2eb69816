@@ -1,0 +1,97 @@
+package com.ustcweather.amarishappilees;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+import com.ustcweather.amarishappilees.db.DataBase;
+
+import android.database.Cursor;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.ListFragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+
+public class ProvinceFragment  extends ListFragment{
+	
+	private static ExecutorService LIMITED_TASK_EXECUTOR  = (ExecutorService) Executors.newFixedThreadPool(5);
+	private Cursor provinceCursor = null;
+	private List<String> provinceData= new ArrayList<String>();
+	private ArrayAdapter<String> provinceAdapter;
+    private FragmentManager manager;  
+    private FragmentTransaction transaction;
+	
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		return inflater.inflate(R.layout.fragment_city_list, container, false);
+	}
+	
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		DataBase dataBase = new DataBase();
+		provinceCursor = dataBase.readProvinceDataBaseFromSDCard();
+		getData();
+//		setListAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, city));
+	}
+	
+	class ProvinceAsyncTask extends AsyncTask<String, Integer, String[]> {
+
+		@Override
+		protected String[] doInBackground(String... params) {
+			// TODO Auto-generated method stub	
+			while (provinceCursor.moveToNext()) {
+				String name =provinceCursor.getString(provinceCursor.getColumnIndex("name"));  
+				provinceData.add(name);
+			}
+			provinceCursor.close();
+			return params;
+		}
+
+		@Override
+		protected void onPostExecute(String[] result) {
+			// TODO Auto-generated method stub
+			provinceAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, provinceData);
+			setListAdapter(provinceAdapter);
+		}
+	}
+	
+	private  void getData() {
+		ProvinceAsyncTask task = new ProvinceAsyncTask();
+		task.executeOnExecutor(LIMITED_TASK_EXECUTOR);
+	}
+	
+    @Override  
+    public void onListItemClick(ListView l, View v, int position, long id) {  
+        super.onListItemClick(l, v, position, id);  
+  
+        /* 获取条目 */  
+        String provinceName = provinceAdapter.getItem(position);  
+        /* 创建事物 */  
+        transaction = manager.beginTransaction();  
+  
+        /* 创建CityFragment(注：这里我们可以直接new一个CityFragment对象，因为我们之前没有通过事物将其添加到某个布局中，所以可以直接new) */  
+        CityFragment fragment = new CityFragment();  
+  
+        /* 创建Bundle并添加数据 */  
+        Bundle args = new Bundle();  
+        args.putString("provinceName", provinceName);  
+        /* 为fragment设置数据 */  
+        fragment.setArguments(args);  
+        /* 替换 */  
+        transaction.replace(R.id.city_fragment, fragment, "cityFragment");  
+        /* 把当前fragment添加到回退栈 */  
+        transaction.addToBackStack("cityFragment");  
+        /* 提交事物 */  
+        transaction.commit();  
+    } 
+	
+}
