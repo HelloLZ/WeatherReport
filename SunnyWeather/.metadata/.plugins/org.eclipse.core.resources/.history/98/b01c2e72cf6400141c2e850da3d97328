@@ -191,7 +191,6 @@ public class NavigationDrawerFragment extends Fragment implements
 			entity.setButtonVisible(View.VISIBLE);
 		}
 		myCityAdapter.notifyDataSetChanged();
-		mDrawerListView.setAdapter(myCityAdapter);
     	return true;
     }
 

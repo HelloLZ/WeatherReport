@@ -32,7 +32,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ListView;
 
 /**
@@ -43,7 +42,7 @@ import android.widget.ListView;
  * implemented here.
  */
 public class NavigationDrawerFragment extends Fragment implements
-		OnItemClickListener, OnItemLongClickListener {
+		OnItemClickListener {
 
 	/**
 	 * Remember the position of the selected item.
@@ -123,7 +122,6 @@ public class NavigationDrawerFragment extends Fragment implements
 		mDrawerListView = (ListView) inflater.inflate(
 				R.layout.fragment_navigation_drawer, container, false);
 		mDrawerListView.setOnItemClickListener(this);
-		mDrawerListView.setOnItemLongClickListener(this);
 		initList();
 		MyCityEntity entity = new MyCityEntity();
 		entity.setMyCityName(getString(R.string.title_section1));
@@ -150,6 +148,7 @@ public class NavigationDrawerFragment extends Fragment implements
 
 		@Override
 		protected String[] doInBackground(String... params) {
+			// TODO Auto-generated method sgtub
 			myCityList.clear();
 			DataBase dataBase = new DataBase();
 			myCityCursor = dataBase.readMyCityDataBaseSDCard();
@@ -165,6 +164,7 @@ public class NavigationDrawerFragment extends Fragment implements
 
 		@Override
 		protected void onPostExecute(String[] result) {
+			// TODO Auto-generated method stub			
 			myCityAdapter.notifyDataSetChanged();
 		}
 	}
@@ -181,19 +181,6 @@ public class NavigationDrawerFragment extends Fragment implements
 
 		selectItem(position, entity.getMyCityName());
 	}
-	
-	@Override
-    public boolean onItemLongClick(AdapterView<?> arg0, View arg1,  int arg2, long arg3) {
-		// TODO Auto-generated method stub	
-		MyCityEntity entity = new MyCityEntity();
-		for(int i=0; i<myCityList.size(); i++) {
-			entity = myCityList.get(i);
-			entity.setButtonVisible(View.VISIBLE);
-		}
-		myCityAdapter.notifyDataSetChanged();
-		mDrawerListView.setAdapter(myCityAdapter);
-    	return true;
-    }
 
 	public boolean isDrawerOpen() {
 		return mDrawerLayout != null

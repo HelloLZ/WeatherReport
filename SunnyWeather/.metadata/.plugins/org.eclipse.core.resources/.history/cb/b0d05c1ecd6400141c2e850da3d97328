@@ -4,7 +4,7 @@ import android.view.View;
 
 public class MyCityEntity {
 	private String myCityName;
-	private int buttonVisible = View.GONE;
+	private int buttonVisible = View.VISIBLE;
 	
 	public MyCityEntity() {
 		
