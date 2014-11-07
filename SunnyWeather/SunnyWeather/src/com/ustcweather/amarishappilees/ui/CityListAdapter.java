@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 public class CityListAdapter extends BaseAdapter {
@@ -42,19 +42,20 @@ public class CityListAdapter extends BaseAdapter {
 			listView = myInflater.inflate(R.layout.item_city_list, null);
 			viewHolder = new myViewHolder();
 			viewHolder.myCityName = (TextView) listView.findViewById(R.id.textView_mycity);
-			viewHolder.myCityButton = (Button) listView.findViewById(R.id.button_delect_mycity);
+			viewHolder.myCityBox = (CheckBox) listView.findViewById(R.id.checkbox_delect_mycity);
 		} else {
 			viewHolder = (myViewHolder) listView.getTag();
 		}
 		if (viewHolder != null) {
 			viewHolder.myCityName.setText(entity.getMyCityName());
-			viewHolder.myCityButton.setVisibility(entity.getButtonVisible());
+			viewHolder.myCityBox.setVisibility(entity.getBoxVisible());
+			viewHolder.myCityBox.setChecked(entity.getIsChecked());
 		}
 		return listView;
 	}
 
 	static class myViewHolder {
 		public TextView myCityName;
-		public Button myCityButton;
+		public CheckBox myCityBox;
 	}
 }

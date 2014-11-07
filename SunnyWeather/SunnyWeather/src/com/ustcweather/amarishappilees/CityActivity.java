@@ -25,6 +25,7 @@ public class CityActivity extends FragmentActivity implements CityFragment.CityD
 		cityDB.copyDataBase(context);
 	}
 	
+	@Override
     public void onBackPressed() {
 		Intent intent = new Intent(this,MainActivity.class);		
 		startActivity(intent);

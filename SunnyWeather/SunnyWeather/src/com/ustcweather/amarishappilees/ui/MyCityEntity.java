@@ -4,16 +4,17 @@ import android.view.View;
 
 public class MyCityEntity {
 	private String myCityName;
-	private int buttonVisible = View.GONE;
+	private int boxVisible = View.GONE;
+	private boolean isChecked = false;
 	
 	public MyCityEntity() {
 		
 	}
 	
-	public MyCityEntity(String myCityName, int buttonVisible) {
+	public MyCityEntity(String myCityName, int  boxVisible) {
 		super();
 		this.myCityName = myCityName;
-		this.buttonVisible = buttonVisible;
+		this. boxVisible =  boxVisible;
 	}
 	
 	public void setMyCityName (String myCityName) {
@@ -24,11 +25,19 @@ public class MyCityEntity {
 		return this.myCityName;
 	}
 	
-	public void setButtonVisible(int buttonVisible) {
-		this.buttonVisible = buttonVisible;
+	public void setBoxVisible(int buttonVisible) {
+		this. boxVisible = buttonVisible;
 	}
 	
-	public int getButtonVisible() {
-		return this.buttonVisible;
+	public int getBoxVisible() {
+		return this. boxVisible;
+	}
+	
+	public void setCheckBoxIsChecked(boolean isChecked){
+		this.isChecked = isChecked;
+	}
+	
+	public boolean getIsChecked(){
+		return isChecked;
 	}
 }

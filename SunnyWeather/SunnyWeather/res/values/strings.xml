@@ -22,5 +22,7 @@
     <string name="city_exceed_num">最多只能添加5个城市</string>
     <string name="city_already_exists">城市已经存在</string>
     <string name="city_add_success">城市添加成功</string>
+    <string name="quit">取消</string>
+    <string name="sure">确定</string>
 
 </resources>

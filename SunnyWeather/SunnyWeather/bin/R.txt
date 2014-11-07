@@ -280,8 +280,8 @@ int id activity_chooser_view_content 0x7f050025
 int id add_city 0x7f05007c
 int id always 0x7f05000b
 int id beginning 0x7f050011
-int id button_delect_mycity 0x7f05006f
 int id checkbox 0x7f05002d
+int id checkbox_delect_mycity 0x7f05006f
 int id city_fragment 0x7f050040
 int id collapseActionView 0x7f05000d
 int id container 0x7f05003d
@@ -339,6 +339,7 @@ int id pull_to_refresh_header_text 0x7f050075
 int id pull_to_refresh_header_time 0x7f050078
 int id pull_to_refresh_last_update_time_text 0x7f050077
 int id pull_webview 0x7f050070
+int id quit 0x7f05007d
 int id radio 0x7f05002f
 int id search_badge 0x7f050032
 int id search_bar 0x7f050031
@@ -356,6 +357,7 @@ int id showHome 0x7f050004
 int id showTitle 0x7f050006
 int id split_action_bar 0x7f05001e
 int id submit_area 0x7f050039
+int id sure 0x7f05007e
 int id tabMode 0x7f050002
 int id textView_compare_aaadate 0x7f05005d
 int id textView_compare_aaatoday 0x7f050059
@@ -428,6 +430,7 @@ int layout pull_to_refresh_header2 0x7f030022
 int layout support_simple_spinner_dropdown_item 0x7f030023
 int menu global 0x7f0c0000
 int menu main 0x7f0c0001
+int menu quit 0x7f0c0002
 int string aaatoday 0x7f0a0034
 int string aatoday 0x7f0a0033
 int string abc_action_bar_home_description 0x7f0a0001
@@ -476,7 +479,9 @@ int string pushmsg_center_pull_down_text 0x7f0a000f
 int string pushmsg_center_pull_down_update_time 0x7f0a0011
 int string pushmsg_center_pull_release_text 0x7f0a0010
 int string pushmsg_center_pull_up_text 0x7f0a000e
+int string quit 0x7f0a0038
 int string select_city 0x7f0a002d
+int string sure 0x7f0a0039
 int string title_section1 0x7f0a0024
 int string title_section2 0x7f0a0025
 int string title_section3 0x7f0a0026

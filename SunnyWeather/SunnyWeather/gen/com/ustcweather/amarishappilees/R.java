@@ -1150,8 +1150,8 @@ containing a value of this type.
         public static final int add_city=0x7f05007c;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
-        public static final int button_delect_mycity=0x7f05006f;
         public static final int checkbox=0x7f05002d;
+        public static final int checkbox_delect_mycity=0x7f05006f;
         public static final int city_fragment=0x7f050040;
         public static final int collapseActionView=0x7f05000d;
         public static final int container=0x7f05003d;
@@ -1209,6 +1209,7 @@ containing a value of this type.
         public static final int pull_to_refresh_header_time=0x7f050078;
         public static final int pull_to_refresh_last_update_time_text=0x7f050077;
         public static final int pull_webview=0x7f050070;
+        public static final int quit=0x7f05007d;
         public static final int radio=0x7f05002f;
         public static final int search_badge=0x7f050032;
         public static final int search_bar=0x7f050031;
@@ -1226,6 +1227,7 @@ containing a value of this type.
         public static final int showTitle=0x7f050006;
         public static final int split_action_bar=0x7f05001e;
         public static final int submit_area=0x7f050039;
+        public static final int sure=0x7f05007e;
         public static final int tabMode=0x7f050002;
         public static final int textView_compare_aaadate=0x7f05005d;
         public static final int textView_compare_aaatoday=0x7f050059;
@@ -1326,6 +1328,7 @@ containing a value of this type.
     public static final class menu {
         public static final int global=0x7f0c0000;
         public static final int main=0x7f0c0001;
+        public static final int quit=0x7f0c0002;
     }
     public static final class string {
         public static final int aaatoday=0x7f0a0034;
@@ -1411,7 +1414,9 @@ containing a value of this type.
         public static final int pushmsg_center_pull_down_update_time=0x7f0a0011;
         public static final int pushmsg_center_pull_release_text=0x7f0a0010;
         public static final int pushmsg_center_pull_up_text=0x7f0a000e;
+        public static final int quit=0x7f0a0038;
         public static final int select_city=0x7f0a002d;
+        public static final int sure=0x7f0a0039;
         public static final int title_section1=0x7f0a0024;
         public static final int title_section2=0x7f0a0025;
         public static final int title_section3=0x7f0a0026;

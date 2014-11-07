@@ -18,6 +18,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -207,11 +208,30 @@ public class MainActivity extends ActionBarActivity implements
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
+		//TODO
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
-		if (id == R.id.action_settings) {
+		switch(id) {
+		case R.id.action_settings:
+			return true;
+		case  R.id.add_city:
+			Intent intent = new Intent(MainActivity.this, CityActivity.class);
+			startActivityForResult(intent, SEND_CITY_REQUEST);
+			return true;
+		case R.id.quit:
+			mNavigationDrawerFragment.ResetCheckBox();
+			mNavigationDrawerFragment.ChangeButtonState(View.INVISIBLE);
+			MenuInflater inflater = getMenuInflater();
+			mNavigationDrawerFragment.getMenu().clear();
+			inflater.inflate(R.menu.global, mNavigationDrawerFragment.getMenu());
+			mNavigationDrawerFragment.showGlobalContextActionBar();
+		case R.id.sure:
+			mNavigationDrawerFragment.deleteMyCity();
+			return true;
+		}
+/*		if (id == R.id.action_settings) {
 			return true;
 		}
 		if (item.getItemId() == R.id.add_city) {
@@ -219,6 +239,7 @@ public class MainActivity extends ActionBarActivity implements
 			startActivityForResult(intent, SEND_CITY_REQUEST);
 			return true;
 		}
+*/
 		return super.onOptionsItemSelected(item);
 	}
 
@@ -322,5 +343,7 @@ public class MainActivity extends ActionBarActivity implements
 		 * ARG_SECTION_NUMBER)); }
 		 */
 	}
+	
+
 
 }

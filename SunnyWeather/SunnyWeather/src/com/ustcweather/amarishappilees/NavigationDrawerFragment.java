@@ -72,10 +72,12 @@ public class NavigationDrawerFragment extends Fragment implements
 	private List<MyCityEntity> myCityList = new ArrayList<MyCityEntity>();
 	private View mFragmentContainerView;
 	private Cursor myCityCursor;
-	private static ExecutorService LIMITED_TASK_EXECUTOR  = (ExecutorService) Executors.newFixedThreadPool(1);
+	private static ExecutorService LIMITED_TASK_EXECUTOR = (ExecutorService) Executors
+			.newFixedThreadPool(1);
 	private int mCurrentSelectedPosition = 0;
 	private boolean mFromSavedInstanceState;
 	private boolean mUserLearnedDrawer;
+	private Menu menu;
 
 	static final int SEND_CITY_REQUEST = 0;
 
@@ -133,7 +135,7 @@ public class NavigationDrawerFragment extends Fragment implements
 		initCityDB();
 		return mDrawerListView;
 	}
-	
+
 	public void initCityDB() {
 		Context context = getActivity().getApplicationContext();
 		DataBase cityDB = new DataBase();
@@ -142,10 +144,11 @@ public class NavigationDrawerFragment extends Fragment implements
 
 	@Override
 	public void onResume() {
+		// TODO
 		super.onResume();
 		getData();
 	}
-	
+
 	class MyCityAsyncTask extends AsyncTask<String, Integer, String[]> {
 
 		@Override
@@ -154,12 +157,13 @@ public class NavigationDrawerFragment extends Fragment implements
 			DataBase dataBase = new DataBase();
 			myCityCursor = dataBase.readMyCityDataBaseSDCard();
 			while (myCityCursor.moveToNext()) {
-				String myCityName =myCityCursor.getString(myCityCursor.getColumnIndex("cityname"));  
+				String myCityName = myCityCursor.getString(myCityCursor
+						.getColumnIndex("cityname"));
 				MyCityEntity entity = new MyCityEntity();
 				entity.setMyCityName(myCityName);
 				myCityList.add(entity);
 			}
-			myCityCursor.close();			
+			myCityCursor.close();
 			return params;
 		}
 
@@ -168,32 +172,77 @@ public class NavigationDrawerFragment extends Fragment implements
 			myCityAdapter.notifyDataSetChanged();
 		}
 	}
-	
-	private  void getData() {
+
+	private void getData() {
 		MyCityAsyncTask task = new MyCityAsyncTask();
 		task.executeOnExecutor(LIMITED_TASK_EXECUTOR);
 	}
-	
+
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
 		MyCityEntity entity = myCityList.get(position);
-
-		selectItem(position, entity.getMyCityName());
+		if (entity.getBoxVisible() == View.VISIBLE) {
+			if (entity.getIsChecked() == false) {
+				entity.setCheckBoxIsChecked(true);
+			} else {
+				entity.setCheckBoxIsChecked(false);
+			}
+			myCityAdapter.notifyDataSetChanged();
+			mDrawerListView.setAdapter(myCityAdapter);
+		} else {
+			selectItem(position, entity.getMyCityName());
+		}
 	}
-	
+
 	@Override
-    public boolean onItemLongClick(AdapterView<?> arg0, View arg1,  int arg2, long arg3) {
-		// TODO Auto-generated method stub	
+	public boolean onItemLongClick(AdapterView<?> arg0, View arg1, int arg2,
+			long arg3) {
+		// TODO Auto-generated method stub
+		ChangeButtonState(View.VISIBLE);
+		MenuInflater inflater = getActivity().getMenuInflater();
+		menu.clear();
+		inflater.inflate(R.menu.quit, menu);
+		showGlobalContextActionBar();
+		return true;
+	}
+
+	public void ChangeButtonState(int state) {
 		MyCityEntity entity = new MyCityEntity();
-		for(int i=0; i<myCityList.size(); i++) {
+		for (int i = 0; i < myCityList.size(); i++) {
 			entity = myCityList.get(i);
-			entity.setButtonVisible(View.VISIBLE);
+			entity.setBoxVisible(state);
 		}
 		myCityAdapter.notifyDataSetChanged();
 		mDrawerListView.setAdapter(myCityAdapter);
-    	return true;
-    }
+	}
+	
+	public void ResetCheckBox() {
+		MyCityEntity entity = new MyCityEntity();
+		for(int i=0; i<myCityList.size(); i++) {
+			entity = myCityList.get(i);
+			if(entity.getIsChecked() == true) {
+				entity.setCheckBoxIsChecked(false);
+			}
+		}
+		myCityAdapter.notifyDataSetChanged();
+		mDrawerListView.setAdapter(myCityAdapter);
+	}
+	
+	public void deleteMyCity() {
+		MyCityEntity entity = new MyCityEntity();
+		DataBase dataBase = new DataBase();
+		for(int i=0; i<myCityList.size(); i++) {
+			entity = myCityList.get(i);
+			if(entity.getIsChecked() == true) {
+				String[] where = new String[] {entity.getMyCityName()};
+				dataBase.deleteMyCity(where);
+			}
+		}
+		getData();
+		myCityAdapter.notifyDataSetChanged();
+//		mDrawerListView.setAdapter(myCityAdapter);
+	}
 
 	public boolean isDrawerOpen() {
 		return mDrawerLayout != null
@@ -334,6 +383,7 @@ public class NavigationDrawerFragment extends Fragment implements
 
 	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+		// TODO
 		// If the drawer is open, show the global app actions in the action bar.
 		// See also
 		// showGlobalContextActionBar, which controls the top-left area of the
@@ -341,6 +391,10 @@ public class NavigationDrawerFragment extends Fragment implements
 		if (mDrawerLayout != null && isDrawerOpen()) {
 			inflater.inflate(R.menu.global, menu);
 			showGlobalContextActionBar();
+			this.menu = menu;
+		} else if (mDrawerLayout != null && (!isDrawerOpen())) {
+			ResetCheckBox();
+			ChangeButtonState(View.INVISIBLE);
 		}
 		super.onCreateOptionsMenu(menu, inflater);
 	}
@@ -358,7 +412,7 @@ public class NavigationDrawerFragment extends Fragment implements
 	 * show the global app 'context', rather than just what's in the current
 	 * screen.
 	 */
-	private void showGlobalContextActionBar() {
+	void showGlobalContextActionBar() {
 		ActionBar actionBar = getActionBar();
 		actionBar.setDisplayShowTitleEnabled(true);
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
@@ -379,4 +433,9 @@ public class NavigationDrawerFragment extends Fragment implements
 		 */
 		void onNavigationDrawerItemSelected(int position, String myCityName);
 	}
+
+	public Menu getMenu() {
+		return this.menu;
+	}
+
 }

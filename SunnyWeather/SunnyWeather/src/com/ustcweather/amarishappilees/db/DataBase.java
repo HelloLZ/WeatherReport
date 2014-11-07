@@ -5,7 +5,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -115,6 +114,19 @@ public class DataBase {
 		ContentValues values = new ContentValues();
 		values.put("cityname", cityName);
 		db.insert("my_city", null, values);
+		return;
+	}
+	
+	public void deleteMyCity(String[] cityName) {
+		String dbPath = Environment.getExternalStorageDirectory()
+				+ "/ChinaCity.db";
+		File dbFile = new File(dbPath);
+		if (!dbFile.exists()) {
+			return;
+		}
+		SQLiteDatabase db = SQLiteDatabase.openDatabase(dbPath, null,
+				SQLiteDatabase.OPEN_READWRITE);
+		db.delete("my_city", "cityname=?", cityName);
 		return;
 	}
 }
