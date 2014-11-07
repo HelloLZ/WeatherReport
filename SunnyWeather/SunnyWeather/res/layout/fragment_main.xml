@@ -329,7 +329,7 @@
                 android:layout_width="80dp"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/des"
-                android:src="@android:drawable/ic_menu_gallery" />
+                android:src="@drawable/rain" />
             
             <ImageView
                 android:id="@+id/imageView_down_atoday"

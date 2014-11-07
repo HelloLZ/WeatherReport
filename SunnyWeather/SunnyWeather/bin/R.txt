@@ -261,9 +261,10 @@ int drawable default_ptr_rotate 0x7f020057
 int drawable drawer_shadow 0x7f020058
 int drawable ic_drawer 0x7f020059
 int drawable ic_launcher 0x7f02005a
-int drawable test 0x7f02005b
-int drawable xsearch_loading 0x7f02005c
-int drawable xsearch_msg_pull_arrow_down 0x7f02005d
+int drawable rain 0x7f02005b
+int drawable test 0x7f02005c
+int drawable xsearch_loading 0x7f02005d
+int drawable xsearch_msg_pull_arrow_down 0x7f02005e
 int id action_bar 0x7f05001c
 int id action_bar_activity_content 0x7f050015
 int id action_bar_container 0x7f05001b

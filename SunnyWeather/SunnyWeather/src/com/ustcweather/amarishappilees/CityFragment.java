@@ -22,6 +22,7 @@ public class CityFragment extends ListFragment{
 	
 	private static ExecutorService LIMITED_TASK_EXECUTOR  = (ExecutorService) Executors.newFixedThreadPool(1);
 	private List<String> cityData = new ArrayList<String>();
+	private List<String> bufferCityData = new ArrayList<String>();
 	private ArrayAdapter<String> cityAdapter;
 	private Cursor cityCursor;
 	private CityDrawerCallbacks cityCallbacks;
@@ -54,10 +55,11 @@ public class CityFragment extends ListFragment{
 		@Override
 		protected String[] doInBackground(String... params) {
 			// TODO Auto-generated method stub	
-			cityData.clear();
+//			cityData.clear();
 			while (cityCursor.moveToNext()) {
 				String name =cityCursor.getString(cityCursor.getColumnIndex("city"));  
-				cityData.add(name);
+//				cityData.add(name);
+				bufferCityData.add(name);
 			}
 			cityCursor.close();			
 			return params;
@@ -65,8 +67,11 @@ public class CityFragment extends ListFragment{
 
 		@Override
 		protected void onPostExecute(String[] result) {
-			// TODO Auto-generated method stub			
+			// TODO Auto-generated method stub	
+			cityData.clear();
+			cityData.addAll(bufferCityData);
 			cityAdapter.notifyDataSetChanged();
+			bufferCityData.clear();
 		}
 	}
 	

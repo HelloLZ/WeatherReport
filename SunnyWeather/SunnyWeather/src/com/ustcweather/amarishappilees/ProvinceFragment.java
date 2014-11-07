@@ -25,6 +25,7 @@ public class ProvinceFragment  extends ListFragment{
 	private static ExecutorService LIMITED_TASK_EXECUTOR  = (ExecutorService) Executors.newFixedThreadPool(1);
 	private Cursor provinceCursor = null;
 	private List<String> provinceData= new ArrayList<String>();
+	private List<String> bufferProvinceData = new ArrayList<String>();
 	private ArrayAdapter<String> provinceAdapter;
     private FragmentManager manager;  
     private FragmentTransaction transaction;
@@ -42,8 +43,8 @@ public class ProvinceFragment  extends ListFragment{
 		manager = this.getFragmentManager();
 		DataBase dataBase = new DataBase();
 		provinceCursor = dataBase.readProvinceDataBaseFromSDCard();
-		
 		getData();
+		
 //		setListAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, city));
 	}
 	
@@ -52,21 +53,24 @@ public class ProvinceFragment  extends ListFragment{
 		@Override
 		protected String[] doInBackground(String... params) {
 			// TODO Auto-generated method stub	
-			provinceData.clear();
+//			provinceData.clear();
+			provinceCursor.moveToFirst();
 			while (provinceCursor.moveToNext()) {
 				String name =provinceCursor.getString(provinceCursor.getColumnIndex("name"));  
-				provinceData.add(name);
+//				provinceData.add(name);
+				bufferProvinceData.add(name);
 			}
 			provinceCursor.close();
-			
 			return params;
 		}
 
 		@Override
 		protected void onPostExecute(String[] result) {
 			// TODO Auto-generated method stub
+			provinceData.clear();
+			provinceData.addAll(bufferProvinceData);
 			provinceAdapter.notifyDataSetChanged();
-			
+			bufferProvinceData.clear();
 		}
 	}
 	

@@ -96,7 +96,7 @@ public class MainActivity extends ActionBarActivity implements
 			weatherReInfo = DecodeJson.getJsonInfo(httpGetString);
 			weatherInfo[0] = weatherReInfo.getTodayWeather();
 			String todayDate = weatherReInfo.getTodayDate();
-			weatherInfo[1] = todayDate.substring(14, 16);
+			weatherInfo[1] = todayDate;//.substring(14, 16);
 			String todayTempRange = weatherReInfo.getTodayTempera();
 			weatherInfo[2] = todayTempRange.substring(0, 2);
 			// weatherInfo[3] = todayTempRange.substring(5, 7);

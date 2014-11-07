@@ -70,6 +70,7 @@ public class NavigationDrawerFragment extends Fragment implements
 	private ListView mDrawerListView;
 	private CityListAdapter myCityAdapter;
 	private List<MyCityEntity> myCityList = new ArrayList<MyCityEntity>();
+	private List<MyCityEntity> bufferCityList = new ArrayList<MyCityEntity>();
 	private View mFragmentContainerView;
 	private Cursor myCityCursor;
 	private static ExecutorService LIMITED_TASK_EXECUTOR = (ExecutorService) Executors
@@ -153,7 +154,7 @@ public class NavigationDrawerFragment extends Fragment implements
 
 		@Override
 		protected String[] doInBackground(String... params) {
-			myCityList.clear();
+			// myCityList.clear();
 			DataBase dataBase = new DataBase();
 			myCityCursor = dataBase.readMyCityDataBaseSDCard();
 			while (myCityCursor.moveToNext()) {
@@ -161,7 +162,8 @@ public class NavigationDrawerFragment extends Fragment implements
 						.getColumnIndex("cityname"));
 				MyCityEntity entity = new MyCityEntity();
 				entity.setMyCityName(myCityName);
-				myCityList.add(entity);
+				// myCityList.add(entity);
+				bufferCityList.add(entity);
 			}
 			myCityCursor.close();
 			return params;
@@ -169,7 +171,10 @@ public class NavigationDrawerFragment extends Fragment implements
 
 		@Override
 		protected void onPostExecute(String[] result) {
+			myCityList.clear();
+			myCityList.addAll(bufferCityList);
 			myCityAdapter.notifyDataSetChanged();
+			bufferCityList.clear();
 		}
 	}
 
@@ -216,32 +221,34 @@ public class NavigationDrawerFragment extends Fragment implements
 		myCityAdapter.notifyDataSetChanged();
 		mDrawerListView.setAdapter(myCityAdapter);
 	}
-	
+
 	public void ResetCheckBox() {
 		MyCityEntity entity = new MyCityEntity();
-		for(int i=0; i<myCityList.size(); i++) {
+		for (int i = 0; i < myCityList.size(); i++) {
 			entity = myCityList.get(i);
-			if(entity.getIsChecked() == true) {
+			if (entity.getIsChecked() == true) {
 				entity.setCheckBoxIsChecked(false);
 			}
 		}
 		myCityAdapter.notifyDataSetChanged();
 		mDrawerListView.setAdapter(myCityAdapter);
 	}
-	
+
 	public void deleteMyCity() {
 		MyCityEntity entity = new MyCityEntity();
 		DataBase dataBase = new DataBase();
-		for(int i=0; i<myCityList.size(); i++) {
+		for (int i = 0; i < myCityList.size(); i++) {
 			entity = myCityList.get(i);
-			if(entity.getIsChecked() == true) {
-				String[] where = new String[] {entity.getMyCityName()};
+			if (entity.getIsChecked()) {
+				String[] where = new String[] { entity.getMyCityName() };
 				dataBase.deleteMyCity(where);
+				myCityList.remove(i);
+				i--;			
 			}
 		}
-		getData();
+		// getData();
 		myCityAdapter.notifyDataSetChanged();
-//		mDrawerListView.setAdapter(myCityAdapter);
+		mDrawerListView.setAdapter(myCityAdapter);
 	}
 
 	public boolean isDrawerOpen() {

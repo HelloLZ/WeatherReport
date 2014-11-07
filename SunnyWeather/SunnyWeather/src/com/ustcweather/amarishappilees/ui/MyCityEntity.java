@@ -4,7 +4,7 @@ import android.view.View;
 
 public class MyCityEntity {
 	private String myCityName;
-	private int boxVisible = View.GONE;
+	private int boxVisible = View.INVISIBLE;
 	private boolean isChecked = false;
 	
 	public MyCityEntity() {
