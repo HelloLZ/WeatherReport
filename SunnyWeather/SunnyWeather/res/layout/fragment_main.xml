@@ -397,8 +397,10 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/layout_dataline"
             android:layout_width="320dp"
-            android:layout_height="100dp" >
+            android:layout_height="100dp" 
+            android:orientation="vertical">
         </LinearLayout>
         
         <LinearLayout

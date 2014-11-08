@@ -1,0 +1,34 @@
+package com.ustcweather.amarishappilees.ui;
+
+import org.achartengine.chart.PointStyle;
+import org.achartengine.model.XYMultipleSeriesDataset;
+import org.achartengine.model.XYSeries;
+import org.achartengine.renderer.XYMultipleSeriesRenderer;
+import org.achartengine.renderer.XYSeriesRenderer;
+
+import android.graphics.Color;
+
+public class ChartView {
+
+	public ChartView() {
+	}
+
+	public void InitSeriesData(double today, double tomorrow, double atomorrow,
+			double aatomorrow) {
+		XYMultipleSeriesDataset dataset = new XYMultipleSeriesDataset();
+		XYSeries series = new XYSeries("ÎÂ¶È");
+		series.add(0, today);
+		series.add(1, tomorrow);
+		series.add(2, atomorrow);
+		series.add(3, aatomorrow);
+		dataset.addSeries(series);
+	}
+
+	public void InitRenderer() {
+		XYMultipleSeriesRenderer renderer = new XYMultipleSeriesRenderer();
+		XYSeriesRenderer xyRenderer = new XYSeriesRenderer();
+		xyRenderer.setColor(Color.BLUE);
+		xyRenderer.setPointStyle(PointStyle.SQUARE);
+		renderer.addSeriesRenderer(xyRenderer);
+	}
+}

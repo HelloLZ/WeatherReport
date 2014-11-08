@@ -1,0 +1,21 @@
+package com.ustcweather.amarishappilees.ui;
+
+import org.achartengine.model.XYMultipleSeriesDataset;
+import org.achartengine.model.XYSeries;
+import org.achartengine.renderer.XYMultipleSeriesRenderer;
+
+public class ChartView {
+
+	public ChartView() {
+	}
+
+	public void InitSeriesData(double today, double tomorrow, double atomorrow, double aatomorrow) {
+		XYMultipleSeriesDataset upDataset = new XYMultipleSeriesDataset();
+		XYSeries upSeries = new XYSeries("ÎÂ¶È");
+		upSeries.add(0, today);
+		upSeries.add(1, tomorrow);		
+		upSeries.add(2, atomorrow);
+		upSeries.add(3, aatomorrow);		
+		upDataset.addSeries(upSeries);
+	}
+}

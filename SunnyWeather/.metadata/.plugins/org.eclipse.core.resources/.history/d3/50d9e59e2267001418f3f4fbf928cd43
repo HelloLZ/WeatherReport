@@ -1,0 +1,23 @@
+package com.ustcweather.amarishappilees.ui;
+
+import org.achartengine.model.XYMultipleSeriesDataset;
+import org.achartengine.model.XYSeries;
+import org.achartengine.renderer.XYMultipleSeriesRenderer;
+
+public class ChartView {
+
+	public ChartView() {
+	}
+
+	public void InitSeriesData() {
+		XYMultipleSeriesDataset dataset = new XYMultipleSeriesDataset();
+		XYSeries series = new XYSeries("温度");
+		for (int i = 0; i < 4; i++) {
+			// 填x,y值
+			series.add(k, 20 + r.nextInt() % 100);
+		}
+		// 需要绘制的点放进dataset中
+		dataset.addSeries(series);
+
+	}
+}

@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.ustcweather.amarishappilees.weatherinfo.WeatherRelativeInfo"/>
-<fullyQualifiedTypeName name="net.sf.json.JSONObject"/>
-<fullyQualifiedTypeName name="net.sf.json.JSONArray"/>
-<fullyQualifiedTypeName name="org.json.JSONObject"/>
-<fullyQualifiedTypeName name="org.json.JSONArray"/>
-<fullyQualifiedTypeName name="android.os.AsyncTask"/>
-<fullyQualifiedTypeName name="java.io.UnsupportedEncodingException"/>
-<fullyQualifiedTypeName name="java.util.concurrent.ExecutorService"/>
-<fullyQualifiedTypeName name="java.util.concurrent.Executors"/>
-<fullyQualifiedTypeName name="android.widget.BaseAdapter"/>
 <fullyQualifiedTypeName name="android.widget.TextView"/>
 <fullyQualifiedTypeName name="android.widget.Button"/>
 <fullyQualifiedTypeName name="android.widget.ListAdapter"/>
@@ -24,7 +14,6 @@
 <fullyQualifiedTypeName name="com.ustcweather.amarishappilees.ProvinceFragment.OnItemClickedListener"/>
 <fullyQualifiedTypeName name="android.R"/>
 <fullyQualifiedTypeName name="android.R.layout"/>
-<fullyQualifiedTypeName name="android.view.View"/>
 <fullyQualifiedTypeName name="android.view.ViewGroup"/>
 <fullyQualifiedTypeName name="android.support.v4.app.ListFragment"/>
 <fullyQualifiedTypeName name="android.os.Bundle"/>
@@ -36,13 +25,11 @@
 <fullyQualifiedTypeName name="java.io.InputStream"/>
 <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
 <fullyQualifiedTypeName name="java.io.OutputStream"/>
-<fullyQualifiedTypeName name="android.content.Context"/>
 <fullyQualifiedTypeName name="com.ustcweather.amarishappilees.CityActivity"/>
 <fullyQualifiedTypeName name="android.widget.ArrayAdapter"/>
 <fullyQualifiedTypeName name="android.widget.ListView"/>
 <fullyQualifiedTypeName name="android.support.v4.app.FragmentManager"/>
 <fullyQualifiedTypeName name="android.support.v4.app.FragmentTransaction"/>
-<fullyQualifiedTypeName name="com.ustcweather.amarishappilees.R.layout"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="android.os.Handler"/>
 <fullyQualifiedTypeName name="android.os.Message"/>
@@ -58,6 +45,19 @@
 <fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
 <fullyQualifiedTypeName name="android.widget.CheckBox"/>
 <fullyQualifiedTypeName name="com.ustcweather.amarishappilees.ui.MyCityEntity"/>
-<fullyQualifiedTypeName name="com.ustcweather.amarishappilees.R.id"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="org.achartengine.renderer.XYMultipleSeriesRenderer"/>
+<fullyQualifiedTypeName name="org.achartengine.model.XYMultipleSeriesDataset"/>
+<fullyQualifiedTypeName name="org.achartengine.model.XYSeries"/>
+<fullyQualifiedTypeName name="org.achartengine.renderer.XYSeriesRenderer"/>
+<fullyQualifiedTypeName name="android.graphics.Color"/>
+<fullyQualifiedTypeName name="org.achartengine.chart.PointStyle"/>
+<fullyQualifiedTypeName name="android.view.View"/>
+<fullyQualifiedTypeName name="org.achartengine.ChartFactory"/>
+<fullyQualifiedTypeName name="android.content.Context"/>
+<fullyQualifiedTypeName name="android.widget.LinearLayout"/>
+<fullyQualifiedTypeName name="android.widget.RelativeLayout"/>
+<fullyQualifiedTypeName name="com.ustcweather.amarishappilees.R.layout"/>
+<fullyQualifiedTypeName name="com.ustcweather.amarishappilees.R.id"/>
+<fullyQualifiedTypeName name="com.ustcweather.amarishappilees.ui.ChartView"/>
 </qualifiedTypeNameHistroy>
