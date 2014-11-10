@@ -46,10 +46,10 @@ public class MainActivity extends ActionBarActivity implements
 	private static TextView textTodayTempera;
 	private static TextView textTodayWeather;
 	private static TextView textTodayUp;
-	// private static TextView textTodayDown;
+	private static TextView textTodayDown;
 
-	// private static TextView textWind;
-	// private static TextView textPm;
+	private static TextView textWindKind;
+	private static TextView textPm;
 	// private static TextView textWetValue;
 	private static TextView textWindValue;
 	private static TextView textPmValue;
@@ -69,6 +69,9 @@ public class MainActivity extends ActionBarActivity implements
 	private static TextView textCAATodayDown;
 	private static TextView textCAAATodayDown;
 	private static ChartView chartView;
+	private static LinearLayout lineLayoutUp;
+	private static LinearLayout lineLayoutDown;
+	private static String httpGetString;
 
 	private String city = "À’÷›";
 	private static ExecutorService LIMITED_TASK_EXECUTOR = (ExecutorService) Executors
@@ -94,66 +97,88 @@ public class MainActivity extends ActionBarActivity implements
 		@Override
 		protected String[] doInBackground(String... params) {
 
-			String httpGetString = HttpOperate.getWeatherInformation(city);
-			WeatherRelativeInfo weatherReInfo = new WeatherRelativeInfo();
-			weatherReInfo = DecodeJson.getJsonInfo(httpGetString);
-			weatherInfo[0] = weatherReInfo.getTodayWeather();
-			String todayDate = weatherReInfo.getTodayDate();
-			weatherInfo[1] = todayDate;// .substring(14, 16);
-			String todayTempRange = weatherReInfo.getTodayTempera();
-			weatherInfo[2] = todayTempRange.substring(0, 2);
-			// weatherInfo[3] = todayTempRange.substring(5, 7);
+			httpGetString = HttpOperate.getWeatherInformation(city);
+			if (!httpGetString.isEmpty()) {
+				WeatherRelativeInfo weatherReInfo = new WeatherRelativeInfo();
+				weatherReInfo = DecodeJson.getJsonInfo(httpGetString);
+				weatherInfo[0] = weatherReInfo.getTodayWeather();
+				String todayDate = weatherReInfo.getTodayDate();
+				weatherInfo[1] = todayDate;// .substring(14, 16);
 
-			weatherInfo[4] = weatherReInfo.getTodayWind();
-			weatherInfo[5] = weatherReInfo.getPm();
-			weatherInfo[6] = weatherReInfo.getAfTomoDate();
-			weatherInfo[7] = weatherReInfo.getLastDate();
+				weatherInfo[2] = weatherReInfo.getTodayTemperaUp();
+				weatherInfo[3] = weatherReInfo.getTodayTemperaDown();
 
-			weatherInfo[8] = weatherReInfo.getTodayWeather();
-			weatherInfo[9] = weatherReInfo.getTodayWeather();
-			weatherInfo[10] = weatherReInfo.getAfTomoWeather();
-			weatherInfo[11] = weatherReInfo.getLastWeather();
+				weatherInfo[4] = weatherReInfo.getTodayWindKind();
+				weatherInfo[18] = weatherReInfo.getTodayWindLevel();
+				weatherInfo[5] = weatherReInfo.getPm();
+				weatherInfo[19] = weatherReInfo.getPmLevel();
+				weatherInfo[6] = weatherReInfo.getAfTomoDate();
+				weatherInfo[7] = weatherReInfo.getLastDate();
 
-			weatherInfo[12] = weatherReInfo.getTomorrowTempera()
-					.substring(0, 2) + "°Ê";
-			weatherInfo[13] = weatherReInfo.getTomorrowTempera().substring(5);
-			weatherInfo[14] = weatherReInfo.getAfTomoTempera().substring(0, 2)
-					+ "°Ê";
-			weatherInfo[15] = weatherReInfo.getAfTomoTempera().substring(5);
-			weatherInfo[16] = weatherReInfo.getLastTempera().substring(0, 2)
-					+ "°Ê";
-			weatherInfo[17] = weatherReInfo.getLastTempera().substring(5);
+				weatherInfo[8] = weatherReInfo.getTodayWeather();
+				weatherInfo[9] = weatherReInfo.getTodayWeather();
+				weatherInfo[10] = weatherReInfo.getAfTomoWeather();
+				weatherInfo[11] = weatherReInfo.getLastWeather();
 
+				weatherInfo[12] = weatherReInfo.getTomorrowTemperaUp();
+				weatherInfo[13] = weatherReInfo.getTomorrowTemperaDown();
+				weatherInfo[14] = weatherReInfo.getAfTomoTemperaUp();
+				weatherInfo[15] = weatherReInfo.getAfTomoTemperaDown();
+				weatherInfo[16] = weatherReInfo.getLastTemperaUp();
+				weatherInfo[17] = weatherReInfo.getLastTemperaDown();
+			}
 			return weatherInfo;
 		}
 
 		@Override
 		protected void onPostExecute(String[] result) {
-			textTodayTempera.setText(weatherInfo[1]);
-			textTodayWeather.setText(weatherInfo[0]);
-			textTodayUp.setText(weatherInfo[2]);
-			// textTodayDown.setText(weatherInfo[3]);
+			if (!httpGetString.isEmpty()) {
+				textTodayTempera.setText(weatherInfo[1]);
+				textTodayWeather.setText(weatherInfo[0]);
+				textTodayUp.setText(weatherInfo[2]);
+				textTodayDown.setText(weatherInfo[3]);
 
-			textWindValue.setText(weatherInfo[4]);
-			textPmValue.setText(weatherInfo[5]);
+				textWindKind.setText(weatherInfo[4]);
+				textWindValue.setText(weatherInfo[18]);
+				textPm.setText(weatherInfo[19]);
+				textPmValue.setText(weatherInfo[5]);
 
-			textAAToday.setText(weatherInfo[6]);
-			textAAAToday.setText(weatherInfo[7]);
+				textAAToday.setText(weatherInfo[6]);
+				textAAAToday.setText(weatherInfo[7]);
 
-			textTodayDate.setText(weatherInfo[8]);
-			textATodayDate.setText(weatherInfo[9]);
-			textAATodayDate.setText(weatherInfo[10]);
-			textAAATodayDate.setText(weatherInfo[11]);
+				textTodayDate.setText(weatherInfo[8]);
+				textATodayDate.setText(weatherInfo[9]);
+				textAATodayDate.setText(weatherInfo[10]);
+				textAAATodayDate.setText(weatherInfo[11]);
 
-			textCTodayUp.setText(weatherInfo[2] + "°Ê");
-			textCTodayDown.setText(weatherInfo[3] + "°Ê");
-			textCATodayUp.setText(weatherInfo[12]);
-			textCATodayDown.setText(weatherInfo[13]);
-			textCAATodayUp.setText(weatherInfo[14]);
-			textCAATodayDown.setText(weatherInfo[15]);
-			textCAAATodayUp.setText(weatherInfo[16]);
-			textCAAATodayDown.setText(weatherInfo[17]);
+				textCTodayUp.setText(weatherInfo[2] + "°Ê");
+				textCTodayDown.setText(weatherInfo[3] + "°Ê");
+				textCATodayUp.setText(weatherInfo[12] + "°Ê");
+				textCATodayDown.setText(weatherInfo[13] + "°Ê");
+				textCAATodayUp.setText(weatherInfo[14] + "°Ê");
+				textCAATodayDown.setText(weatherInfo[15] + "°Ê");
+				textCAAATodayUp.setText(weatherInfo[16] + "°Ê");
+				textCAAATodayDown.setText(weatherInfo[17] + "°Ê");
+
+				addLine(lineLayoutUp, Double.parseDouble(weatherInfo[2]),
+						Double.parseDouble(weatherInfo[12]),
+						Double.parseDouble(weatherInfo[14]),
+						Double.parseDouble(weatherInfo[16]));
+				addLine(lineLayoutDown, Double.parseDouble(weatherInfo[3]),
+						Double.parseDouble(weatherInfo[13]),
+						Double.parseDouble(weatherInfo[15]),
+						Double.parseDouble(weatherInfo[17]));
+			}
 		}
+	}
+
+	public void addLine(LinearLayout layout, double today, double tomorrow,
+			double atomorrow, double aatomorrow) {
+		chartView = new ChartView();
+		chartView.InitSeriesData(today, tomorrow, atomorrow, aatomorrow);
+		chartView.InitRenderer();
+		View myView = chartView.getLineView(MainActivity.this);
+		layout.addView(myView);
 	}
 
 	private void getData() {
@@ -295,10 +320,10 @@ public class MainActivity extends ActionBarActivity implements
 					.findViewById(R.id.textView_today_weather);
 			textTodayUp = (TextView) rootView
 					.findViewById(R.id.textView_today_up);
-			// textTodayDown = (TextView)
-			// rootView.findViewById(R.id.textView_today_down);
-			// textWind = (TextView) rootView.findViewById(R.id.textView_wind);
-			// textPm = (TextView) rootView.findViewById(R.id.textView_pm);
+			textTodayDown = (TextView) rootView
+					.findViewById(R.id.textView_today_down);
+			textWindKind = (TextView) rootView.findViewById(R.id.textView_wind);
+			textPm = (TextView) rootView.findViewById(R.id.textView_pm);
 			// textWetValue = (TextView)
 			// rootView.findViewById(R.id.textView_wet_value);
 			textWindValue = (TextView) rootView
@@ -333,13 +358,11 @@ public class MainActivity extends ActionBarActivity implements
 					.findViewById(R.id.textView_down_aatoday);
 			textCAAATodayDown = (TextView) rootView
 					.findViewById(R.id.textView_down_aaatoday);
+			lineLayoutUp = (LinearLayout) rootView
+					.findViewById(R.id.layout_dataline_up);
+			lineLayoutDown = (LinearLayout) rootView
+					.findViewById(R.id.layout_dataline_down);
 
-			LinearLayout lineLayout = (LinearLayout)rootView.findViewById(R.id.layout_dataline);
-			chartView = new ChartView();
-			chartView.InitSeriesData(4, 2, 3, 1);
-			chartView.InitRenderer();
-			View view = chartView.getLineView(getActivity());
-			lineLayout.addView(view);
 			return rootView;
 		}
 		/*
@@ -348,6 +371,7 @@ public class MainActivity extends ActionBarActivity implements
 		 * activity).onSectionAttached(getArguments().getInt(
 		 * ARG_SECTION_NUMBER)); }
 		 */
+
 	}
 
 }

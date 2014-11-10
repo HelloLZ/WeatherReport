@@ -58,6 +58,6 @@
 <fullyQualifiedTypeName name="android.widget.LinearLayout"/>
 <fullyQualifiedTypeName name="android.widget.RelativeLayout"/>
 <fullyQualifiedTypeName name="com.ustcweather.amarishappilees.R.layout"/>
-<fullyQualifiedTypeName name="com.ustcweather.amarishappilees.R.id"/>
 <fullyQualifiedTypeName name="com.ustcweather.amarishappilees.ui.ChartView"/>
+<fullyQualifiedTypeName name="com.ustcweather.amarishappilees.R.id"/>
 </qualifiedTypeNameHistroy>

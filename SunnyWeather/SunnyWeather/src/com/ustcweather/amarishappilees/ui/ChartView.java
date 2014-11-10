@@ -42,6 +42,7 @@ public class ChartView {
 		renderer.setShowLabels(false);
 		renderer.setShowLegend(false);
 		renderer.addSeriesRenderer(xyRenderer);
+		renderer.setZoomEnabled(false);
 	}
 
 	public View getLineView(Context context) {
