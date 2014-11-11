@@ -1,0 +1,221 @@
+package com.ustcweather.amarishappilees.weatherinfo;
+
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+
+import com.ustcweather.amarishappilees.R;
+
+public class WeatherIcon {
+
+	public WeatherIcon() {
+
+	}
+
+	public Bitmap getWeatherIcon(Context context, String weather, boolean isDay) {
+		ChangeBitmapSize bitmapSize = new ChangeBitmapSize();
+		BitmapFactory.Options opts = bitmapSize.getSizeBitmap(context.getResources(), R.drawable.d_01);
+		switch (weather) {
+		case "«Á":
+			if (isDay) {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_01, opts);
+			} else {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.n_01, opts);
+			}
+		case "∂‡‘∆":
+			if (isDay) {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_02, opts);
+			} else {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_02, opts);
+			}
+		case "“ı":
+			if (isDay) {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_03, opts);
+			} else {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_03, opts);
+			}
+		case "’Û”Í":
+			if (isDay) {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_04, opts);
+			} else {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_04, opts);
+			}
+		case "«Á¿◊’Û”Í":
+			if (isDay) {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_05, opts);
+			} else {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_05, opts);
+			}
+		case "¿◊’Û”Í∞È”–±˘±¢":
+			if (isDay) {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_06, opts);
+			} else {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_06, opts);
+			}
+		case "”Íº–—©":
+			if (isDay) {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_07, opts);
+			} else {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_07, opts);
+			}
+		case "–°”Í":
+			if (isDay) {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_08, opts);
+			} else {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_08, opts);
+			}
+		case "÷–”Í":
+			if (isDay) {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_09, opts);
+			} else {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_09, opts);
+			}
+		case "¥Û”Í":
+			if (isDay) {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_10, opts);
+			} else {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_10, opts);
+			}
+		case "±©”Í":
+			if (isDay) {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_11, opts);
+			} else {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_11, opts);
+			}
+		case "¥Û±©”Í":
+			if (isDay) {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_12, opts);
+			} else {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_12, opts);
+			}
+		case "Ãÿ¥Û±©”Í":
+			if (isDay) {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_13, opts);
+			} else {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_13, opts);
+			}
+		case "’Û—©":
+			if (isDay) {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_14, opts);
+			} else {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_14, opts);
+			}
+		case "–°—©":
+			if (isDay) {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_15, opts);
+			} else {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_15, opts);
+			}
+		case "÷–—©":
+			if (isDay) {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_16, opts);
+			} else {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_16, opts);
+			}
+		case "¥Û—©":
+			if (isDay) {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_17, opts);
+			} else {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_17, opts);
+			}
+		case "±©—©":
+			if (isDay) {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_18, opts);
+			} else {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_18, opts);
+			}
+		case "ŒÌ":
+			if (isDay) {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_19, opts);
+			} else {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_19, opts);
+			}
+		case "∂≥”Í":
+			if (isDay) {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_20, opts);
+			} else {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_20, opts);
+			}
+		case "…≥≥æ±©":
+			if (isDay) {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_21, opts);
+			} else {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_21, opts);
+			}
+		case "–°”Í◊™÷–”Í":
+			if (isDay) {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_22, opts);
+			} else {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_22, opts);
+			}
+		case "÷–”Í◊™¥Û”Í":
+			if (isDay) {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_23, opts);
+			} else {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_23, opts);
+			}
+		case "¥Û”Í◊™±©”Í":
+			if (isDay) {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_24, opts);
+			} else {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_24, opts);
+			}
+		case "±©”Í◊™¥Û±©”Í":
+			if (isDay) {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_25, opts);
+			} else {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_25, opts);
+			}
+		case "¥Û±©”Í◊™Ãÿ¥Û±©”Í":
+			if (isDay) {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_26, opts);
+			} else {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_26, opts);
+			}
+		case "–°—©◊™÷–—©":
+			if (isDay) {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_27, opts);
+			} else {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_27, opts);
+			}
+		case "÷–—©◊™¥Û—©":
+			if (isDay) {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_28, opts);
+			} else {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_28, opts);
+			}
+		case "¥Û—©◊™±©—©":
+			if (isDay) {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_29, opts);
+			} else {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_29, opts);
+			}
+		case "∏°≥æ":
+			if (isDay) {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_30, opts);
+			} else {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_30, opts);
+			}
+		case "—Ô…≥":
+			if (isDay) {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_31, opts);
+			} else {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_31, opts);
+			}
+		case "«ø…≥≥æ±©":
+			if (isDay) {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_32, opts);
+			} else {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_32, opts);
+			}
+		case "ˆ≤":
+			if (isDay) {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_33, opts);
+			} else {
+				return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_33, opts);
+			}
+		default:
+			return BitmapFactory.decodeResource(context.getResources(), R.drawable.d_01, opts);	
+		}
+	}
+}

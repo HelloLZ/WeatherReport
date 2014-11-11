@@ -1,0 +1,53 @@
+package com.ustcweather.amarishappilees.ui;
+
+import org.achartengine.ChartFactory;
+import org.achartengine.chart.PointStyle;
+import org.achartengine.model.XYMultipleSeriesDataset;
+import org.achartengine.model.XYSeries;
+import org.achartengine.renderer.XYMultipleSeriesRenderer;
+import org.achartengine.renderer.XYSeriesRenderer;
+
+import android.content.Context;
+import android.graphics.Color;
+import android.view.View;
+
+public class ChartView {
+
+	XYMultipleSeriesDataset dataset = new XYMultipleSeriesDataset();
+	XYMultipleSeriesRenderer renderer = new XYMultipleSeriesRenderer();
+
+	public ChartView() {
+	}
+
+	public void InitSeriesData(double today, double tomorrow, double atomorrow,
+			double aatomorrow) {
+		XYSeries series = new XYSeries("ÎÂ¶È");
+		series.add(0, today);
+		series.add(1, tomorrow);
+		series.add(2, atomorrow);
+		series.add(3, aatomorrow);
+		dataset.addSeries(series);
+	}
+
+	public void InitRenderer() {
+
+		XYSeriesRenderer xyRenderer = new XYSeriesRenderer();
+		xyRenderer.setColor(Color.WHITE);
+		xyRenderer.setPointStyle(PointStyle.CIRCLE);
+		renderer.setPanEnabled(false, false);
+		renderer.setPointSize(10);
+		renderer.setMargins(new int[] { 0, 0, 0, 0 });
+		renderer.setShowAxes(false);
+		renderer.setShowGrid(false);
+		renderer.setShowLabels(false);
+		renderer.setShowLegend(false);
+		renderer.addSeriesRenderer(xyRenderer);
+		renderer.setZoomEnabled(false);
+		renderer.setZoomEnabled(false, false);
+	}
+
+	public View getLineView(Context context) {
+		View view = ChartFactory.getLineChartView(context, dataset, renderer);
+		return view;
+	}
+}

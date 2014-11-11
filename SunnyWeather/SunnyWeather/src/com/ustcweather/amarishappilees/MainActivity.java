@@ -7,6 +7,7 @@ import com.ustcweather.amarishappilees.db.DataBase;
 import com.ustcweather.amarishappilees.http.DecodeJson;
 import com.ustcweather.amarishappilees.http.HttpOperate;
 import com.ustcweather.amarishappilees.ui.ChartView;
+import com.ustcweather.amarishappilees.weatherinfo.WeatherIcon;
 import com.ustcweather.amarishappilees.weatherinfo.WeatherRelativeInfo;
 
 import android.app.Activity;
@@ -24,6 +25,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -73,6 +75,16 @@ public class MainActivity extends ActionBarActivity implements
 	private static LinearLayout lineLayoutDown;
 	private static String httpGetString;
 
+	private static ImageView bigWeather;
+	private static ImageView todayWeatherUp;
+	private static ImageView tomorrowWeatherUp;
+	private static ImageView atomorrowWeatherUp;
+	private static ImageView lastWeatherUp;
+	private static ImageView todayWeatherDown;
+	private static ImageView tomorrowWeatherDown;
+	private static ImageView atomorrowWeatherDown;
+	private static ImageView lastWeatherDown;
+
 	private String city = "Ыежн";
 	private static ExecutorService LIMITED_TASK_EXECUTOR = (ExecutorService) Executors
 			.newFixedThreadPool(7);
@@ -116,7 +128,7 @@ public class MainActivity extends ActionBarActivity implements
 				weatherInfo[7] = weatherReInfo.getLastDate();
 
 				weatherInfo[8] = weatherReInfo.getTodayWeather();
-				weatherInfo[9] = weatherReInfo.getTodayWeather();
+				weatherInfo[9] = weatherReInfo.getTomorrowWeather();
 				weatherInfo[10] = weatherReInfo.getAfTomoWeather();
 				weatherInfo[11] = weatherReInfo.getLastWeather();
 
@@ -132,6 +144,7 @@ public class MainActivity extends ActionBarActivity implements
 
 		@Override
 		protected void onPostExecute(String[] result) {
+			WeatherIcon icon = new WeatherIcon();
 			if (!httpGetString.isEmpty()) {
 				textTodayTempera.setText(weatherInfo[1]);
 				textTodayWeather.setText(weatherInfo[0]);
@@ -168,6 +181,17 @@ public class MainActivity extends ActionBarActivity implements
 						Double.parseDouble(weatherInfo[13]),
 						Double.parseDouble(weatherInfo[15]),
 						Double.parseDouble(weatherInfo[17]));
+				
+				bigWeather.setImageResource(icon.getWeatherIcon(weatherInfo[0], false));
+				todayWeatherUp.setImageResource(icon.getWeatherIcon(weatherInfo[8], true));
+				todayWeatherDown.setImageResource(icon.getWeatherIcon(weatherInfo[8], false));
+				tomorrowWeatherUp.setImageResource(icon.getWeatherIcon(weatherInfo[9], true));
+				tomorrowWeatherDown.setImageResource(icon.getWeatherIcon( weatherInfo[9], false));
+				atomorrowWeatherUp.setImageResource(icon.getWeatherIcon(weatherInfo[10], true));
+				atomorrowWeatherDown.setImageResource(icon.getWeatherIcon(weatherInfo[10], false));
+				lastWeatherUp.setImageResource(icon.getWeatherIcon(weatherInfo[11], true));
+				lastWeatherDown.setImageResource(icon.getWeatherIcon(weatherInfo[11], false));
+				icon = null;
 			}
 		}
 	}
@@ -362,6 +386,24 @@ public class MainActivity extends ActionBarActivity implements
 					.findViewById(R.id.layout_dataline_up);
 			lineLayoutDown = (LinearLayout) rootView
 					.findViewById(R.id.layout_dataline_down);
+			bigWeather = (ImageView) rootView
+					.findViewById(R.id.imageView_today_weather);
+			todayWeatherUp = (ImageView) rootView
+					.findViewById(R.id.imageView_up_today);
+			tomorrowWeatherUp = (ImageView) rootView
+					.findViewById(R.id.imageView_up_atoday);
+			atomorrowWeatherUp = (ImageView) rootView
+					.findViewById(R.id.imageView_up_aatoday);
+			lastWeatherUp = (ImageView) rootView
+					.findViewById(R.id.imageView_up_aaatoday);
+			todayWeatherDown = (ImageView) rootView
+					.findViewById(R.id.imageView_down_today);
+			tomorrowWeatherDown = (ImageView) rootView
+					.findViewById(R.id.imageView_down_atoday);
+			atomorrowWeatherDown = (ImageView) rootView
+					.findViewById(R.id.imageView_down_aatoday);
+			lastWeatherDown = (ImageView) rootView
+					.findViewById(R.id.imageView_down_aaatoday);
 
 			return rootView;
 		}

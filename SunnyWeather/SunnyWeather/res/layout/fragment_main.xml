@@ -325,28 +325,28 @@
             android:layout_height="40dp" >
 
             <ImageView
-                android:id="@+id/imageView_down_today"
+                android:id="@+id/imageView_up_today"
                 android:layout_width="80dp"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/des"
                 android:src="@drawable/rain" />
             
             <ImageView
-                android:id="@+id/imageView_down_atoday"
+                android:id="@+id/imageView_up_atoday"
                 android:layout_width="80dp"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/des"
                 android:src="@android:drawable/ic_menu_gallery" />
             
             <ImageView
-                android:id="@+id/imageView_down_aatoday"
+                android:id="@+id/imageView_up_aatoday"
                 android:layout_width="80dp"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/des"
                 android:src="@android:drawable/ic_menu_gallery" />
             
             <ImageView
-                android:id="@+id/imageView_down_aaatoday"
+                android:id="@+id/imageView_up_aaatoday"
                 android:layout_width="80dp"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/des"
@@ -457,28 +457,28 @@
             android:layout_height="40dp" >
 
             <ImageView
-                android:id="@+id/imageView_up_today"
+                android:id="@+id/imageView_down_today"
                 android:layout_width="80dp"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/des"
                 android:src="@android:drawable/ic_menu_gallery" />
             
             <ImageView
-                android:id="@+id/imageView_up_atoday"
+                android:id="@+id/imageView_down_atoday"
                 android:layout_width="80dp"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/des"
                 android:src="@android:drawable/ic_menu_gallery" />
             
             <ImageView
-                android:id="@+id/imageView_up_aatoday"
+                android:id="@+id/imageView_down_aatoday"
                 android:layout_width="80dp"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/des"
                 android:src="@android:drawable/ic_menu_gallery" />
             
             <ImageView
-                android:id="@+id/imageView_up_aaatoday"
+                android:id="@+id/imageView_down_aaatoday"
                 android:layout_width="80dp"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/des"

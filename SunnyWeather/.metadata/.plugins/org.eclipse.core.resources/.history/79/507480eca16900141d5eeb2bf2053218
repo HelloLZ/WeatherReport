@@ -1,0 +1,219 @@
+package com.ustcweather.amarishappilees.weatherinfo;
+
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+
+import com.ustcweather.amarishappilees.R;
+
+public class WeatherIcon {
+
+	public WeatherIcon() {
+
+	}
+
+	public int getWeatherIcon(Context context, String weather, boolean isDay) {
+		switch (weather) {
+		case "Çç":
+			if (isDay) {
+				return R.drawable.d_01;
+			} else {
+				return R.drawable.n_01;
+			}
+		case "¶àÔÆ":
+			if (isDay) {
+				return R.drawable.d_01;
+			} else {
+				return R.drawable.n_01;
+			}
+		case "Òõ":
+			if (isDay) {
+				return R.drawable.d_01;
+			} else {
+				return R.drawable.n_01;
+			}
+		case "ÕóÓê":
+			if (isDay) {
+				return R.drawable.d_01;
+			} else {
+				return R.drawable.n_01;
+			}
+		case "ÇçÀ×ÕóÓê":
+			if (isDay) {
+				return R.drawable.d_01;
+			} else {
+				return R.drawable.n_01;
+			}
+		case "À×ÕóÓê°éÓĞ±ù±¢":
+			if (isDay) {
+				return R.drawable.d_01;
+			} else {
+				return R.drawable.n_01;
+			}
+		case "Óê¼ĞÑ©":
+			if (isDay) {
+				return R.drawable.d_01;
+			} else {
+				return R.drawable.n_01;
+			}
+		case "Ğ¡Óê":
+			if (isDay) {
+				return R.drawable.d_01;
+			} else {
+				return R.drawable.n_01;
+			}
+		case "ÖĞÓê":
+			if (isDay) {
+				return R.drawable.d_01;
+			} else {
+				return R.drawable.n_01;
+			}
+		case "´óÓê":
+			if (isDay) {
+				return R.drawable.d_01;
+			} else {
+				return R.drawable.n_01;
+			}
+		case "±©Óê":
+			if (isDay) {
+				return R.drawable.d_01;
+			} else {
+				return R.drawable.n_01;
+			}
+		case "´ó±©Óê":
+			if (isDay) {
+				return R.drawable.d_01;
+			} else {
+				return R.drawable.n_01;
+			}
+		case "ÌØ´ó±©Óê":
+			if (isDay) {
+				return R.drawable.d_01;
+			} else {
+				return R.drawable.n_01;
+			}
+		case "ÕóÑ©":
+			if (isDay) {
+				return R.drawable.d_01;
+			} else {
+				return R.drawable.n_01;
+			}
+		case "Ğ¡Ñ©":
+			if (isDay) {
+				return R.drawable.d_01;
+			} else {
+				return R.drawable.n_01;
+			}
+		case "ÖĞÑ©":
+			if (isDay) {
+				return R.drawable.d_01;
+			} else {
+				return R.drawable.n_01;
+			}
+		case "´óÑ©":
+			if (isDay) {
+				return R.drawable.d_01;
+			} else {
+				return R.drawable.n_01;
+			}
+		case "±©Ñ©":
+			if (isDay) {
+				return R.drawable.d_01;
+			} else {
+				return R.drawable.n_01;
+			}
+		case "Îí":
+			if (isDay) {
+				return R.drawable.d_01;
+			} else {
+				return R.drawable.n_01;
+			}
+		case "¶³Óê":
+			if (isDay) {
+				return R.drawable.d_01;
+			} else {
+				return R.drawable.n_01;
+			}
+		case "É³³¾±©":
+			if (isDay) {
+				return R.drawable.d_01;
+			} else {
+				return R.drawable.n_01;
+			}
+		case "Ğ¡Óê×ªÖĞÓê":
+			if (isDay) {
+				return R.drawable.d_01;
+			} else {
+				return R.drawable.n_01;
+			}
+		case "ÖĞÓê×ª´óÓê":
+			if (isDay) {
+				return R.drawable.d_01;
+			} else {
+				return R.drawable.n_01;
+			}
+		case "´óÓê×ª±©Óê":
+			if (isDay) {
+				return R.drawable.d_01;
+			} else {
+				return R.drawable.n_01;
+			}
+		case "±©Óê×ª´ó±©Óê":
+			if (isDay) {
+				return R.drawable.d_01;
+			} else {
+				return R.drawable.n_01;
+			}
+		case "´ó±©Óê×ªÌØ´ó±©Óê":
+			if (isDay) {
+				return R.drawable.d_01;
+			} else {
+				return R.drawable.n_01;
+			}
+		case "Ğ¡Ñ©×ªÖĞÑ©":
+			if (isDay) {
+				return R.drawable.d_01;
+			} else {
+				return R.drawable.n_01;
+			}
+		case "ÖĞÑ©×ª´óÑ©":
+			if (isDay) {
+				return R.drawable.d_01;
+			} else {
+				return R.drawable.n_01;
+			}
+		case "´óÑ©×ª±©Ñ©":
+			if (isDay) {
+				return R.drawable.d_01;
+			} else {
+				return R.drawable.n_01;
+			}
+		case "¸¡³¾":
+			if (isDay) {
+				return R.drawable.d_01;
+			} else {
+				return R.drawable.n_01;
+			}
+		case "ÑïÉ³":
+			if (isDay) {
+				return R.drawable.d_01;
+			} else {
+				return R.drawable.n_01;
+			}
+		case "Ç¿É³³¾±©":
+			if (isDay) {
+				return R.drawable.d_01;
+			} else {
+				return R.drawable.n_01;
+			}
+		case "ö²":
+			if (isDay) {
+				return R.drawable.d_01;
+			} else {
+				return R.drawable.n_01;
+			}
+		default:
+			return R.drawable.d_01;
+		}
+	}
+}
