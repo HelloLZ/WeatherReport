@@ -1,0 +1,216 @@
+package com.ustcweather.amarishappilees.weatherinfo;
+
+public class WeatherRelativeInfo {
+
+	private String currentCity = null;
+	private String date = null;
+	private String pm = null;
+	private String pmLevel = null;
+	
+	private String todayDate = null;
+	private String todayWeather = null;
+	private String todayWindKind = null;
+	private String todayWindLevel = null;
+	
+	private String todayTemperaUp = null;
+	private String todayTemperaDown = null;
+	
+	private String tomorrowDate = null;
+	private String tomorrowWeather = null;
+	private String tomorrowTemperaUp = null;
+	private String tomorrowTemperaDown = null;
+	
+	private String afTomoDate = null;
+	private String afTomoWeather = null;
+	private String afTomoTemperaUp = null;
+	private String afTomoTemperaDown = null;
+	
+	private String lastDate = null;
+	private String lastWeather = null;
+	private String  lastTemperaUp = null;
+	private String  lastTemperaDown = null;
+	
+	public WeatherRelativeInfo() {
+		
+	}
+	
+	public void setCurrentCity(String currentCity) {
+		this.currentCity = currentCity;
+	}
+	
+	public String getCurrentCity() {
+		return this.currentCity;
+	}
+	
+	public void setDate(String date) {
+		this.date = date;
+	}
+	
+	public String getdate() {
+		return this.date;
+	}
+	
+	public void setPm(String pm) {
+		this.pm = pm;
+	}
+	
+	public String getPm() {
+		return this.pm;
+	}
+	
+	public void setPmLevel(String pmLevel) {
+		this.pmLevel = pmLevel;
+	}
+	
+	public String getPmLevel() {
+		return this.pmLevel;
+	}
+	
+	/*Today weather information*/
+	public void setTodayDate(String todayDate) {
+		this.todayDate = todayDate;
+	}
+	
+	public String getTodayDate() {
+		return this.todayDate;
+	}
+	
+	public void setTodayWeather(String todayWeather) {
+		this.todayWeather = todayWeather;
+	}
+	
+	public String getTodayWeather() {
+		return this.todayWeather;
+	}
+
+	public void setTodayWindKind(String todayWindKind) {
+		this.todayWindKind = todayWindKind;
+	}
+	
+	public String getTodayWindKind() {
+		return this.todayWindKind;
+	}
+	
+	public void setTodayWindLevel(String todayWindLevel) {
+		this.todayWindLevel = todayWindLevel;
+	}
+	
+	public String getTodayWindLevel() {
+		return this.todayWindLevel;
+	}
+	
+	public void setTodayTemperaUp(String todayTemperaUp) {
+		this.todayTemperaUp = todayTemperaUp;
+	}
+	
+	public void setTodayTemperaDown(String todayTemperaDown) {
+		this.todayTemperaDown = todayTemperaDown;
+	}
+	
+	public String getTodayTemperaUp() {
+		return this.todayTemperaUp;
+	}
+	
+	public String getTodayTemperaDown() {
+		return this.todayTemperaDown;
+	}
+	
+	/*Tomorrow weather information*/
+	public void setTomorrowDate(String tomorrowDate) {
+		this.tomorrowDate = tomorrowDate;
+	}
+	
+	public String getTomorrowDate() {
+		return this.tomorrowDate;
+	}
+	
+	public void setTomorrowWeather(String tomorrowWeather) {
+		this.tomorrowWeather = tomorrowWeather;
+	}
+	
+	public String getTomorrowWeather() {
+		return this.tomorrowWeather;
+	}
+
+	public void setTomorrowTemperaUp(String tomorrowTemperaUp) {
+		this.tomorrowTemperaUp = tomorrowTemperaUp;
+	}
+	
+	public void setTomorrowTemperaDown(String tomorrowTemperaDown) {
+		this.tomorrowTemperaDown = tomorrowTemperaDown;
+	}
+	
+	public String getTomorrowTemperaUp() {
+		return this.tomorrowTemperaUp;
+	}
+	
+	public String getTomorrowTemperaDown() {
+		return this.tomorrowTemperaDown;
+	}
+	
+	/*The day after tomorrow weather information*/
+	public void setAfTomoDate(String afTomoDate) {
+		this.afTomoDate = afTomoDate;
+	}
+	
+	public String getAfTomoDate() {
+		return this.afTomoDate;
+	}
+	
+	public void setAfTomoWeather(String afTomoWeather) {
+		this.afTomoWeather = afTomoWeather;
+	}
+	
+	public String getAfTomoWeather() {
+		return this.afTomoWeather;
+	}
+
+	public void setAfTomoTemperaUp(String afTomoTemperaUp) {
+		this.afTomoTemperaUp = afTomoTemperaUp;
+	}
+	
+	public void setAfTomoTemperaDown(String afTomoTemperaDown) {
+		this.afTomoTemperaDown = afTomoTemperaDown;
+	}
+	
+	public String getAfTomoTemperaUp() {
+		return this.afTomoTemperaUp;
+	}
+	
+	public String getAfTomoTemperaDown() {
+		return this.afTomoTemperaDown;
+	}
+	
+	/*The last day weather information*/
+	public void setLastDate(String lastDate) {
+		this.lastDate = lastDate;
+	}
+	
+	public String getLastDate() {
+		return this.lastDate;
+	}
+	
+	public void setLastWeather(String lastWeather) {
+		this.lastWeather = lastWeather;
+	}
+	
+	public String getLastWeather() {
+		return this.lastWeather;
+	}
+
+	public void setLastTemperaUp(String lastTemperaUp) {
+		this.lastTemperaUp = lastTemperaUp;
+	}
+	
+	public void setLastTemperaDown(String lastTemperaDown) {
+		this.lastTemperaDown = lastTemperaDown;
+	}
+	
+	public String getLastTemperaUp() {
+		return this.lastTemperaUp;
+	}
+	
+	public String getLastTemperaDown() {
+		return this.lastTemperaDown;
+	}
+}

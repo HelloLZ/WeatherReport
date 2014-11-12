@@ -29,9 +29,18 @@ public class WeatherRelativeInfo {
 	private String lastWeather = null;
 	private String  lastTemperaUp = null;
 	private String  lastTemperaDown = null;
+	private String sunLevel = null;
 	
 	public WeatherRelativeInfo() {
 		
+	}
+	
+	public void setSunLevel(String sunLevel) {
+		this.sunLevel = sunLevel;
+	}
+	
+	public String getSunLevel() {
+		return this.sunLevel;
 	}
 	
 	public void setCurrentCity(String currentCity) {

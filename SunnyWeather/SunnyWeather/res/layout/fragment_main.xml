@@ -11,16 +11,16 @@
 
     <LinearLayout
         android:id="@+id/linearLayout_today"
-        android:layout_width="320dp"
-        android:layout_height="90dp"
+        android:layout_width="@dimen/whole_width"
+        android:layout_height="@dimen/today_height"
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:orientation="horizontal" >
 
         <TextView
             android:id="@+id/textView_today_temperature"
-            android:layout_width="130dp"
-            android:layout_height="90dp"
+            android:layout_width="@dimen/today_tempare_width"
+            android:layout_height="match_parent"
             android:gravity="center|center_vertical"
             android:text="@string/none"
             android:textAppearance="?android:attr/textAppearanceLarge"
@@ -30,10 +30,10 @@
 
         <ImageView
             android:id="@+id/imageView_today_devide"
-            android:layout_width="30dp"
-            android:layout_height="90dp"
+            android:layout_width="@dimen/shu_line_width"
+            android:layout_height="match_parent"
             android:contentDescription="@string/des"
-            android:src="@android:drawable/menu_frame" />
+            android:src="@drawable/shuline" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -42,45 +42,45 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="@dimen/today_else_height"
                 android:orientation="horizontal" >
 
                 <ImageView
                     android:id="@+id/imageView_today_weather"
-                    android:layout_width="60dp"
-                    android:layout_height="45dp"
+                    android:layout_width="@dimen/today_weather_icon_width"
+                    android:layout_height="match_parent"
                     android:contentDescription="@string/des"
-                    android:src="@android:drawable/btn_star_big_on" />
+                    android:src="@drawable/d_01" />
 
                 <TextView
                     android:id="@+id/textView_today_weather"
-                    android:layout_width="100dp"
-                    android:layout_height="45dp"
+                    android:layout_width="@dimen/today_weather_text_width"
+                    android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:text="@string/none"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="#FFFF"
-                    android:textSize="15sp"
+                    android:textSize="30sp"
                     android:typeface="monospace" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="160dp"
-                android:layout_height="45dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/today_else_height"
                 android:orientation="horizontal" >
 
                 <ImageView
                     android:id="@+id/imageView_today_down"
-                    android:layout_width="30dp"
-                    android:layout_height="45dp"
+                    android:layout_width="@dimen/today_updown_width"
+                    android:layout_height="match_parent"
                     android:contentDescription="@string/des"
                     android:gravity="center|center_vertical"
-                    android:src="@android:drawable/stat_sys_download" />
+                    android:src="@drawable/down" />
 
                 <TextView
                     android:id="@+id/textView_today_down"
-                    android:layout_width="50dp"
-                    android:layout_height="45dp"
+                    android:layout_width="@dimen/today_updown_tempare_width"
+                    android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:text="@string/none"
                     android:textColor="#FFFF"
@@ -89,16 +89,16 @@
 
                 <ImageView
                     android:id="@+id/imageView_today_up"
-                    android:layout_width="30dp"
-                    android:layout_height="45dp"
+                    android:layout_width="@dimen/today_updown_width"
+                    android:layout_height="match_parent"
                     android:contentDescription="@string/des"
                     android:gravity="center|center_vertical"
-                    android:src="@android:drawable/stat_sys_upload" />
+                    android:src="@drawable/up" />
 
                 <TextView
                     android:id="@+id/textView_today_up"
-                    android:layout_width="50dp"
-                    android:layout_height="45dp"
+                    android:layout_width="@dimen/today_updown_tempare_width"
+                    android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:text="@string/none"
                     android:textColor="#FFFF"
@@ -110,48 +110,48 @@
 
     <LinearLayout
         android:id="@+id/linearLayout_middle"
-        android:layout_width="320dp"
-        android:layout_height="90dp"
+        android:layout_width="@dimen/whole_width"
+        android:layout_height="@dimen/three_height"
         android:layout_alignLeft="@+id/linearLayout_today"
         android:layout_below="@+id/linearLayout_today"
         android:orientation="vertical" >
 
         <ImageView
             android:id="@+id/imageView_devide_v1"
-            android:layout_width="320dp"
-            android:layout_height="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/heng_line_height"
             android:contentDescription="@string/des"
-            android:src="@drawable/abc_textfield_search_default_holo_light" />
+            android:src="@drawable/hengline" />
 
         <LinearLayout
-            android:layout_width="320dp"
-            android:layout_height="50dp" >
+            android:layout_width="@dimen/whole_width"
+            android:layout_height="@dimen/three_middle_height" >
 
             <ImageView
                 android:id="@+id/imageView_wet"
-                android:layout_width="50dp"
+                android:layout_width="@dimen/three_imageview_width"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/des"
-                android:src="@android:drawable/ic_menu_gallery" />
+                android:src="@drawable/shidu" />
 
             <LinearLayout
-                android:layout_width="56dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/three_twoside_textvie_width"
+                android:layout_height="match_parent"
                 android:orientation="vertical" >
 
                 <TextView
                     android:id="@+id/textView_wet"
-                    android:layout_width="56dp"
-                    android:layout_height="25dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/three_textview_height"
                     android:gravity="center_vertical"
                     android:typeface="monospace" 
                     android:textColor="#FFFF"
-                    android:text="@string/wet" />
+                    android:text="@string/sunshine" />
 
                 <TextView
                     android:id="@+id/textView_wet_value"
-                    android:layout_width="56dp"
-                    android:layout_height="25dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/three_textview_height"
                     android:gravity="center_vertical"
                     android:typeface="monospace" 
                     android:textColor="#FFFF"
@@ -160,20 +160,20 @@
 
             <ImageView
                 android:id="@+id/imageView_wind"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/three_imageview_width"
+                android:layout_height="match_parent"
                 android:contentDescription="@string/des"
-                android:src="@android:drawable/ic_menu_gallery" />
+                android:src="@drawable/fengli" />
 
             <LinearLayout
-                android:layout_width="58dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/three_middle_textvie_width"
+                android:layout_height="match_parent"
                 android:orientation="vertical" >
 
                 <TextView
                     android:id="@+id/textView_wind"
-                    android:layout_width="58dp"
-                    android:layout_height="25dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/three_textview_height"
                     android:gravity="center_vertical"
                     android:typeface="monospace" 
                     android:textColor="#FFFF"
@@ -181,8 +181,8 @@
 
                 <TextView
                     android:id="@+id/textView_wind_value"
-                    android:layout_width="58dp"
-                    android:layout_height="25dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/three_textview_height"
                     android:gravity="center_vertical"
                     android:typeface="monospace" 
                     android:textColor="#FFFF"
@@ -191,20 +191,20 @@
 
             <ImageView
                 android:id="@+id/imageView_pm"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/three_imageview_width"
+                android:layout_height="match_parent"
                 android:contentDescription="@string/des"
-                android:src="@android:drawable/ic_menu_gallery" />
+                android:src="@drawable/pm" />
 
             <LinearLayout
-                android:layout_width="56dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/three_twoside_textvie_width"
+                android:layout_height="match_parent"
                 android:orientation="vertical" >
 
                 <TextView
                     android:id="@+id/textView_pm"
-                    android:layout_width="56dp"
-                    android:layout_height="25dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/three_textview_height"
                     android:gravity="center_vertical"
                     android:typeface="monospace" 
                     android:textColor="#FFFF"
@@ -212,8 +212,8 @@
 
                 <TextView
                     android:id="@+id/textView_pm_value"
-                    android:layout_width="56dp"
-                    android:layout_height="25dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/three_textview_height"
                     android:gravity="center_vertical"
                     android:typeface="monospace" 
                     android:textColor="#FFFF"
@@ -223,27 +223,27 @@
 
         <ImageView
             android:id="@+id/imageView_devide_v2"
-            android:layout_width="320dp"
-            android:layout_height="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/heng_line_height"
             android:contentDescription="@string/des"
-            android:src="@drawable/abc_textfield_search_default_holo_light" />
+            android:src="@drawable/hengline" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="320dp"
-        android:layout_height="280dp"
+        android:layout_width="@dimen/whole_width"
+        android:layout_height="@dimen/fourdays_height"
         android:layout_alignLeft="@+id/linearLayout_middle"
         android:layout_below="@+id/linearLayout_middle"
         android:orientation="vertical" >
 
         <LinearLayout
-            android:layout_width="320dp"
-            android:layout_height="25dp" >
+            android:layout_width="@dimen/whole_width"
+            android:layout_height="@dimen/fourdays_textview_height" >
 
             <TextView
                 android:id="@+id/textView_compare_today"
-                android:layout_width="80dp"
+                android:layout_width="@dimen/fourdays_width"
                 android:layout_height="match_parent"
                 android:gravity="center|center_vertical"
                 android:typeface="monospace" 
@@ -252,7 +252,7 @@
 
             <TextView
                 android:id="@+id/textView_compare_atoday"
-                android:layout_width="80dp"
+                android:layout_width="@dimen/fourdays_width"
                 android:layout_height="match_parent"
                 android:gravity="center|center_vertical"
                 android:typeface="monospace" 
@@ -261,7 +261,7 @@
 
             <TextView
                 android:id="@+id/textView_compare_aatoday"
-                android:layout_width="80dp"
+                android:layout_width="@dimen/fourdays_width"
                 android:layout_height="match_parent"
                 android:gravity="center|center_vertical"
                 android:typeface="monospace" 
@@ -270,7 +270,7 @@
 
             <TextView
                 android:id="@+id/textView_compare_aaatoday"
-                android:layout_width="80dp"
+                android:layout_width="@dimen/fourdays_width"
                 android:layout_height="match_parent"
                 android:gravity="center|center_vertical"
                 android:typeface="monospace" 
@@ -280,12 +280,12 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="320dp"
-            android:layout_height="25dp" >
+            android:layout_width="@dimen/whole_width"
+            android:layout_height="@dimen/fourdays_textview_height" >
             
             <TextView
                 android:id="@+id/textView_compare_date"
-                android:layout_width="80dp"
+                android:layout_width="@dimen/fourdays_width"
                 android:layout_height="match_parent"
                 android:gravity="center|center_vertical"
                 android:typeface="monospace" 
@@ -294,7 +294,7 @@
 
             <TextView
                 android:id="@+id/textView_compare_adate"
-                android:layout_width="80dp"
+                android:layout_width="@dimen/fourdays_width"
                 android:layout_height="match_parent"
                 android:gravity="center|center_vertical"
                 android:typeface="monospace" 
@@ -303,7 +303,7 @@
 
             <TextView
                 android:id="@+id/textView_compare_aadate"
-                android:layout_width="80dp"
+                android:layout_width="@dimen/fourdays_width"
                 android:layout_height="match_parent"
                 android:gravity="center|center_vertical"
                 android:typeface="monospace" 
@@ -312,7 +312,7 @@
 
             <TextView
                 android:id="@+id/textView_compare_aaadate"
-                android:layout_width="80dp"
+                android:layout_width="@dimen/fourdays_width"
                 android:layout_height="match_parent"
                 android:gravity="center|center_vertical"
                 android:typeface="monospace" 
@@ -321,46 +321,46 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="320dp"
-            android:layout_height="40dp" >
+            android:layout_width="@dimen/whole_width"
+            android:layout_height="@dimen/fourdays_imageview_height" >
 
             <ImageView
                 android:id="@+id/imageView_up_today"
-                android:layout_width="80dp"
+                android:layout_width="@dimen/fourdays_width"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/des"
-                android:src="@drawable/rain" />
+                android:src="@drawable/d_01" />
             
             <ImageView
                 android:id="@+id/imageView_up_atoday"
-                android:layout_width="80dp"
+                android:layout_width="@dimen/fourdays_width"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/des"
-                android:src="@android:drawable/ic_menu_gallery" />
+                android:src="@drawable/d_01" />
             
             <ImageView
                 android:id="@+id/imageView_up_aatoday"
-                android:layout_width="80dp"
+                android:layout_width="@dimen/fourdays_width"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/des"
-                android:src="@android:drawable/ic_menu_gallery" />
+                android:src="@drawable/d_01" />
             
             <ImageView
                 android:id="@+id/imageView_up_aaatoday"
-                android:layout_width="80dp"
+                android:layout_width="@dimen/fourdays_width"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/des"
-                android:src="@android:drawable/ic_menu_gallery" />
+                android:src="@drawable/d_01" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="320dp"
-            android:layout_height="25dp" >
+            android:layout_width="@dimen/whole_width"
+            android:layout_height="@dimen/fourdays_textview_height" >
 
             <TextView
                 android:id="@+id/textView_up_today"
-                android:layout_width="80dp"
+                android:layout_width="@dimen/fourdays_width"
                 android:layout_height="match_parent"
                 android:gravity="center|center_vertical"
                 android:typeface="monospace" 
@@ -369,7 +369,7 @@
 
             <TextView
                 android:id="@+id/textView_up_atoday"
-                android:layout_width="80dp"
+                android:layout_width="@dimen/fourdays_width"
                 android:layout_height="match_parent"
                 android:gravity="center|center_vertical"
                 android:typeface="monospace" 
@@ -378,7 +378,7 @@
 
             <TextView
                 android:id="@+id/textView_up_aatoday"
-                android:layout_width="80dp"
+                android:layout_width="@dimen/fourdays_width"
                 android:layout_height="match_parent"
                 android:gravity="center|center_vertical"
                 android:typeface="monospace" 
@@ -387,7 +387,7 @@
 
             <TextView
                 android:id="@+id/textView_up_aaatoday"
-                android:layout_width="80dp"
+                android:layout_width="@dimen/fourdays_width"
                 android:layout_height="match_parent"
                 android:gravity="center|center_vertical"
                 android:typeface="monospace" 
@@ -398,25 +398,25 @@
 
         <LinearLayout
             android:id="@+id/layout_dataline_up"
-            android:layout_width="320dp"
-            android:layout_height="50dp" 
+            android:layout_width="@dimen/whole_width"
+            android:layout_height="@dimen/fourdays_line_height" 
             android:orientation="vertical">
         </LinearLayout>
         
         <LinearLayout
             android:id="@+id/layout_dataline_down"
-            android:layout_width="320dp"
-            android:layout_height="50dp" 
+            android:layout_width="@dimen/whole_width"
+            android:layout_height="@dimen/fourdays_line_height" 
             android:orientation="vertical">
         </LinearLayout>
         
         <LinearLayout
-            android:layout_width="320dp"
-            android:layout_height="25dp" >
+            android:layout_width="@dimen/whole_width"
+            android:layout_height="@dimen/fourdays_textview_height" >
 
             <TextView
                 android:id="@+id/textView_down_today"
-                android:layout_width="80dp"
+                android:layout_width="@dimen/fourdays_width"
                 android:layout_height="match_parent"
                 android:gravity="center|center_vertical"
                 android:typeface="monospace" 
@@ -425,7 +425,7 @@
 
             <TextView
                 android:id="@+id/textView_down_atoday"
-                android:layout_width="80dp"
+                android:layout_width="@dimen/fourdays_width"
                 android:layout_height="match_parent"
                 android:gravity="center|center_vertical"
                 android:typeface="monospace" 
@@ -434,7 +434,7 @@
 
             <TextView
                 android:id="@+id/textView_down_aatoday"
-                android:layout_width="80dp"
+                android:layout_width="@dimen/fourdays_width"
                 android:layout_height="match_parent"
                 android:gravity="center|center_vertical"
                 android:typeface="monospace" 
@@ -443,7 +443,7 @@
 
             <TextView
                 android:id="@+id/textView_down_aaatoday"
-                android:layout_width="80dp"
+                android:layout_width="@dimen/fourdays_width"
                 android:layout_height="match_parent"
                 android:gravity="center|center_vertical"
                 android:typeface="monospace" 
@@ -453,36 +453,36 @@
         </LinearLayout>
         
         <LinearLayout
-            android:layout_width="320dp"
-            android:layout_height="40dp" >
+            android:layout_width="@dimen/whole_width"
+            android:layout_height="@dimen/fourdays_imageview_height" >
 
             <ImageView
                 android:id="@+id/imageView_down_today"
-                android:layout_width="80dp"
+                android:layout_width="@dimen/fourdays_width"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/des"
-                android:src="@android:drawable/ic_menu_gallery" />
+                android:src="@drawable/d_01" />
             
             <ImageView
                 android:id="@+id/imageView_down_atoday"
-                android:layout_width="80dp"
+                android:layout_width="@dimen/fourdays_width"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/des"
-                android:src="@android:drawable/ic_menu_gallery" />
+                android:src="@drawable/d_01" />
             
             <ImageView
                 android:id="@+id/imageView_down_aatoday"
-                android:layout_width="80dp"
+                android:layout_width="@dimen/fourdays_width"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/des"
-                android:src="@android:drawable/ic_menu_gallery" />
+                android:src="@drawable/d_01" />
             
             <ImageView
                 android:id="@+id/imageView_down_aaatoday"
-                android:layout_width="80dp"
+                android:layout_width="@dimen/fourdays_width"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/des"
-                android:src="@android:drawable/ic_menu_gallery" />
+                android:src="@drawable/d_01" />
 
         </LinearLayout>
 

@@ -79,6 +79,7 @@ public class NavigationDrawerFragment extends Fragment implements
 	private boolean mFromSavedInstanceState;
 	private boolean mUserLearnedDrawer;
 	private Menu menu;
+	private boolean isPush = false;
 
 	static final int SEND_CITY_REQUEST = 0;
 
@@ -89,6 +90,14 @@ public class NavigationDrawerFragment extends Fragment implements
 		myCityAdapter = new CityListAdapter(getActionBar().getThemedContext(),
 				myCityList);
 		mDrawerListView.setAdapter(myCityAdapter);
+	}
+	
+	public boolean getIsPush() {
+		return this.isPush;
+	}
+	
+	public void setIsPush(boolean isPush) {
+		this.isPush = isPush;
 	}
 
 	@Override
@@ -109,7 +118,7 @@ public class NavigationDrawerFragment extends Fragment implements
 		}
 
 		// Select either the default item (0) or the last selected item.
-		selectItem(mCurrentSelectedPosition, "³É¶¼");
+
 	}
 
 	@Override
@@ -128,9 +137,6 @@ public class NavigationDrawerFragment extends Fragment implements
 		mDrawerListView.setOnItemClickListener(this);
 		mDrawerListView.setOnItemLongClickListener(this);
 		initList();
-		MyCityEntity entity = new MyCityEntity();
-		entity.setMyCityName(getString(R.string.title_section1));
-		myCityList.add(entity);
 		myCityAdapter.notifyDataSetChanged();
 		mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
 		initCityDB();
@@ -175,12 +181,26 @@ public class NavigationDrawerFragment extends Fragment implements
 			myCityList.addAll(bufferCityList);
 			myCityAdapter.notifyDataSetChanged();
 			bufferCityList.clear();
+			if (!isPush) {
+				if (myCityList.size() != 0) {
+					MyCityEntity firstEntity = new MyCityEntity();
+					firstEntity = myCityList.get(0);
+					selectItem(mCurrentSelectedPosition,
+							firstEntity.getMyCityName());
+				} else {
+					selectItem(mCurrentSelectedPosition, "");
+				}
+			}
 		}
 	}
 
 	private void getData() {
 		MyCityAsyncTask task = new MyCityAsyncTask();
 		task.executeOnExecutor(LIMITED_TASK_EXECUTOR);
+	}
+
+	public void fresh() {
+		getData();
 	}
 
 	@Override
@@ -243,7 +263,7 @@ public class NavigationDrawerFragment extends Fragment implements
 				String[] where = new String[] { entity.getMyCityName() };
 				dataBase.deleteMyCity(where);
 				myCityList.remove(i);
-				i--;			
+				i--;
 			}
 		}
 		// getData();
@@ -355,6 +375,12 @@ public class NavigationDrawerFragment extends Fragment implements
 		}
 		if (mCallbacks != null) {
 			mCallbacks.onNavigationDrawerItemSelected(position, myCityName);
+		}
+	}
+
+	public void closeDrawer() {
+		if (mDrawerLayout != null) {
+			mDrawerLayout.closeDrawer(mFragmentContainerView);
 		}
 	}
 

@@ -1,0 +1,42 @@
+package com.ustcweather.amarishappilees.weatherinfo;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
+import android.content.ContentResolver;
+import android.content.Context;
+
+public class CurrentTime {
+
+	public CurrentTime() {
+
+	}
+
+	public int GetAmPm(Context context) {
+		SimpleDateFormat format = new SimpleDateFormat("HH", Locale.CHINA);
+		String t = format.format(new Date());
+		ContentResolver cv = context.getContentResolver();
+		String strTimeFormat = android.provider.Settings.System.getString(cv,
+				android.provider.Settings.System.TIME_12_24);
+		if (strTimeFormat != null && strTimeFormat.equals("24")) {
+			if (Integer.parseInt(t) >= 18 && Integer.parseInt(t) <= 24) {
+				return 1; // night
+			} else {
+				return 0; // day
+			}
+		} else {
+			Calendar c = Calendar.getInstance();
+			if (c.get(Calendar.AM_PM) == 0) {
+				return 0;// day
+			} else {
+				if (Integer.parseInt(t) >= 6 && Integer.parseInt(t) <= 12) {
+					return 1;// night
+				} else {
+					return 0;
+				}
+			}
+		}
+	}
+}

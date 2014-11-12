@@ -8,6 +8,8 @@ import com.ustcweather.amarishappilees.weatherinfo.WeatherRelativeInfo;
 
 public class DecodeJson {
 
+	private static String todayTempera;
+	
 	public DecodeJson() {
 
 	}
@@ -28,6 +30,9 @@ public class DecodeJson {
 			JSONObject results0 = results.getJSONObject(0);
 			String currentCity = results0.getString("currentCity");
 			String pm = results0.getString("pm25");
+			JSONArray index = results0.getJSONArray("index");
+			JSONObject index4 = index.getJSONObject(5);
+			String sunLevel = index4.getString("zs");
 			
 			/* Today weather information */
 			JSONArray weatherData = results0.getJSONArray("weather_data");
@@ -35,7 +40,7 @@ public class DecodeJson {
 			String todayDate = weatherToday.getString("date");
 			String todayWeather = weatherToday.getString("weather");
 			String todayWind = weatherToday.getString("wind");
-			String todayTempera = weatherToday.getString("temperature");
+			todayTempera = weatherToday.getString("temperature");
 
 			/* Tomorrow weather information */
 			JSONObject weatherTomorrow = weatherData.getJSONObject(1);
@@ -61,6 +66,7 @@ public class DecodeJson {
 			weatherReInfo.setDate(date);
 			weatherReInfo.setPm(pm);
 			weatherReInfo.setPmLevel(getPmLevel(pm));
+			weatherReInfo.setSunLevel(sunLevel);
 
 			/* Set today weather information */
 			weatherReInfo.setTodayDate(getTodayTempera(todayDate));
@@ -101,7 +107,7 @@ public class DecodeJson {
 	private static String getTemperaUp(String tempera) {
 		int position = tempera.indexOf('~');
 		if (position == -1) {
-			return "0";
+			return getTemperaDown(todayTempera);
 		} else {
 			tempera = tempera.substring(0, position - 1);
 			return tempera;
@@ -120,6 +126,9 @@ public class DecodeJson {
 	
 	private static String getTodayTempera(String todayDate) {
 		int position = todayDate.indexOf('£º'); 
+		if(position == -1) {
+			return getTemperaDown(todayTempera);
+		}
 		todayDate = todayDate.substring(position+1, todayDate.length()-2);
 		return todayDate;
 	}

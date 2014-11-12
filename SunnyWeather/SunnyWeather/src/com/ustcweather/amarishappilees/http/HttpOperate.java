@@ -19,32 +19,33 @@ public class HttpOperate {
 		// 百度天气API
 		String baiduUrl = null;
 		StringBuffer strBuf;
+		if (cityName != null) {
+			try {
+				baiduUrl = "http://api.map.baidu.com/telematics/v3/weather?location="
+						+ URLEncoder.encode(cityName, "utf-8")
+						+ "&output=json&ak=s9ViARFrDGNFxW8tZyoQY4m7";
+			} catch (UnsupportedEncodingException e1) {
+				e1.printStackTrace();
+			}
 
-		try {
-			baiduUrl = "http://api.map.baidu.com/telematics/v3/weather?location="
-					+ URLEncoder.encode(cityName, "utf-8")
-					+ "&output=json&ak=s9ViARFrDGNFxW8tZyoQY4m7";			
-		} catch (UnsupportedEncodingException e1) {
-			e1.printStackTrace();
+			strBuf = new StringBuffer();
+
+			try {
+				URL url = new URL(baiduUrl);
+				URLConnection conn = url.openConnection();
+				BufferedReader reader = new BufferedReader(
+						new InputStreamReader(conn.getInputStream(), "utf-8"));
+				String line = null;
+				while ((line = reader.readLine()) != null)
+					strBuf.append(line + " ");
+				reader.close();
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			return strBuf.toString();
 		}
-
-		strBuf = new StringBuffer();
-
-		try {
-			URL url = new URL(baiduUrl);
-			URLConnection conn = url.openConnection();
-			BufferedReader reader = new BufferedReader(new InputStreamReader(
-					conn.getInputStream(), "utf-8"));
-			String line = null;
-			while ((line = reader.readLine()) != null)
-				strBuf.append(line + " ");
-			reader.close();
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		return strBuf.toString();
+		return null;
 	}
 }

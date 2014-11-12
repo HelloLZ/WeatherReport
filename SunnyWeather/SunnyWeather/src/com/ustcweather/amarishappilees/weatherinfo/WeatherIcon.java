@@ -9,7 +9,14 @@ public class WeatherIcon {
 	}
 
 	public int getWeatherIcon(String weather, boolean isDay) {
-		switch (weather) {
+		String name = null;
+		int position = weather.indexOf('×ª');
+		if (position != -1) {
+			name = weather.substring(0, position);
+		} else {
+			name = weather;
+		}
+		switch (name) {
 		case "Çç":
 			if (isDay) {
 				return R.drawable.d_01;

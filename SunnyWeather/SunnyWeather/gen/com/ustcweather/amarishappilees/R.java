@@ -15,9 +15,6 @@ public final class R {
         public static final int abc_slide_in_top=0x7f040003;
         public static final int abc_slide_out_bottom=0x7f040004;
         public static final int abc_slide_out_top=0x7f040005;
-        public static final int pull_arrow_down=0x7f040006;
-        public static final int pull_arrow_up=0x7f040007;
-        public static final int update_loading_progressbar_anim=0x7f040008;
     }
     public static final class attr {
         /**  Custom divider drawable to use for elements in the action bar. 
@@ -991,6 +988,12 @@ containing a value of this type.
          (the screen is in portrait). This may be either a fraction or a dimension.
          */
         public static final int dialog_fixed_width_minor=0x7f080012;
+        public static final int fourdays_height=0x7f08002c;
+        public static final int fourdays_imageview_height=0x7f08001b;
+        public static final int fourdays_line_height=0x7f08001c;
+        public static final int fourdays_textview_height=0x7f08001a;
+        public static final int fourdays_width=0x7f080019;
+        public static final int heng_line_height=0x7f08002a;
         /** 
          Per the design guidelines, navigation drawers should be between 240dp and 320dp:
          https://developer.android.com/design/patterns/navigation-drawer.html
@@ -999,43 +1002,58 @@ containing a value of this type.
         public static final int navigation_drawer_width=0x7f080017;
         /**  ViewPager的间隔 
          */
-        public static final int pciture_view_pager_margin=0x7f080018;
+        public static final int pciture_view_pager_margin=0x7f08002d;
         /**  工具栏上按钮的间距 
          */
-        public static final int picture_action_bar_button_margin=0x7f080019;
-        public static final int picture_action_bar_height=0x7f08001a;
+        public static final int picture_action_bar_button_margin=0x7f08002e;
+        public static final int picture_action_bar_height=0x7f08002f;
         /**  工具栏上显示1/6文字的字体大小 
          */
-        public static final int picture_action_bar_page_index_text_size=0x7f080024;
-        public static final int picture_album_column_margin=0x7f080021;
-        public static final int picture_album_item_title_height=0x7f080023;
-        public static final int picture_album_text_margin=0x7f080020;
+        public static final int picture_action_bar_page_index_text_size=0x7f080039;
+        public static final int picture_album_column_margin=0x7f080036;
+        public static final int picture_album_item_title_height=0x7f080038;
+        public static final int picture_album_text_margin=0x7f080035;
         /**  图集标题字体大小 
          */
-        public static final int picture_album_title_text_size=0x7f08001c;
-        public static final int picture_album_top_margin=0x7f080022;
+        public static final int picture_album_title_text_size=0x7f080031;
+        public static final int picture_album_top_margin=0x7f080037;
         /**  图集View的间隔 
          */
-        public static final int picture_album_view_margin=0x7f08001e;
-        public static final int picture_album_view_margin_bottom=0x7f08001f;
+        public static final int picture_album_view_margin=0x7f080033;
+        public static final int picture_album_view_margin_bottom=0x7f080034;
         /**  图集中图片数量字体大小 
          */
-        public static final int picture_count_text_size=0x7f08001d;
+        public static final int picture_count_text_size=0x7f080032;
         /**  正在加载文本上边距 
          */
-        public static final int picture_loading_text_top_margin=0x7f080026;
-        public static final int picture_pull_to_refresh_footer_height=0x7f08002a;
-        public static final int picture_pull_to_refresh_last_update_time_text_size=0x7f080028;
-        public static final int picture_pull_to_refresh_last_update_time_top_margin=0x7f080029;
+        public static final int picture_loading_text_top_margin=0x7f08003b;
+        public static final int picture_pull_to_refresh_footer_height=0x7f08003f;
+        public static final int picture_pull_to_refresh_last_update_time_text_size=0x7f08003d;
+        public static final int picture_pull_to_refresh_last_update_time_top_margin=0x7f08003e;
         /**  下拉刷新字体 
          */
-        public static final int picture_pull_to_refresh_loading_text_size=0x7f080027;
+        public static final int picture_pull_to_refresh_loading_text_size=0x7f08003c;
         /**  重新加载文字字体大小 
          */
-        public static final int picture_reload_text_size=0x7f08001b;
+        public static final int picture_reload_text_size=0x7f080030;
         /**  用户引导边距 
          */
-        public static final int picture_user_guide_margin=0x7f080025;
+        public static final int picture_user_guide_margin=0x7f08003a;
+        public static final int shu_line_width=0x7f080029;
+        public static final int three_height=0x7f08001d;
+        public static final int three_imageview_width=0x7f080021;
+        public static final int three_middle_height=0x7f08002b;
+        public static final int three_middle_textvie_width=0x7f080020;
+        public static final int three_textview_height=0x7f08001e;
+        public static final int three_twoside_textvie_width=0x7f08001f;
+        public static final int today_else_height=0x7f080023;
+        public static final int today_height=0x7f080022;
+        public static final int today_tempare_width=0x7f080025;
+        public static final int today_updown_tempare_width=0x7f080028;
+        public static final int today_updown_width=0x7f080027;
+        public static final int today_weather_icon_width=0x7f080024;
+        public static final int today_weather_text_width=0x7f080026;
+        public static final int whole_width=0x7f080018;
     }
     public static final class drawable {
         public static final int abc_ab_bottom_solid_dark_holo=0x7f020000;
@@ -1159,46 +1177,52 @@ containing a value of this type.
         public static final int d_32=0x7f020076;
         public static final int d_33=0x7f020077;
         public static final int default_ptr_rotate=0x7f020078;
-        public static final int drawer_shadow=0x7f020079;
-        public static final int ic_drawer=0x7f02007a;
-        public static final int ic_launcher=0x7f02007b;
-        public static final int n_01=0x7f02007c;
-        public static final int n_02=0x7f02007d;
-        public static final int n_03=0x7f02007e;
-        public static final int n_04=0x7f02007f;
-        public static final int n_05=0x7f020080;
-        public static final int n_06=0x7f020081;
-        public static final int n_07=0x7f020082;
-        public static final int n_08=0x7f020083;
-        public static final int n_09=0x7f020084;
-        public static final int n_10=0x7f020085;
-        public static final int n_11=0x7f020086;
-        public static final int n_12=0x7f020087;
-        public static final int n_13=0x7f020088;
-        public static final int n_14=0x7f020089;
-        public static final int n_15=0x7f02008a;
-        public static final int n_16=0x7f02008b;
-        public static final int n_17=0x7f02008c;
-        public static final int n_18=0x7f02008d;
-        public static final int n_19=0x7f02008e;
-        public static final int n_20=0x7f02008f;
-        public static final int n_21=0x7f020090;
-        public static final int n_22=0x7f020091;
-        public static final int n_23=0x7f020092;
-        public static final int n_24=0x7f020093;
-        public static final int n_25=0x7f020094;
-        public static final int n_26=0x7f020095;
-        public static final int n_27=0x7f020096;
-        public static final int n_28=0x7f020097;
-        public static final int n_29=0x7f020098;
-        public static final int n_30=0x7f020099;
-        public static final int n_31=0x7f02009a;
-        public static final int n_32=0x7f02009b;
-        public static final int n_33=0x7f02009c;
-        public static final int rain=0x7f02009d;
-        public static final int test=0x7f02009e;
-        public static final int xsearch_loading=0x7f02009f;
-        public static final int xsearch_msg_pull_arrow_down=0x7f0200a0;
+        public static final int down=0x7f020079;
+        public static final int drawer_shadow=0x7f02007a;
+        public static final int fengli=0x7f02007b;
+        public static final int hengline=0x7f02007c;
+        public static final int ic_drawer=0x7f02007d;
+        public static final int ic_launcher=0x7f02007e;
+        public static final int n_01=0x7f02007f;
+        public static final int n_02=0x7f020080;
+        public static final int n_03=0x7f020081;
+        public static final int n_04=0x7f020082;
+        public static final int n_05=0x7f020083;
+        public static final int n_06=0x7f020084;
+        public static final int n_07=0x7f020085;
+        public static final int n_08=0x7f020086;
+        public static final int n_09=0x7f020087;
+        public static final int n_10=0x7f020088;
+        public static final int n_11=0x7f020089;
+        public static final int n_12=0x7f02008a;
+        public static final int n_13=0x7f02008b;
+        public static final int n_14=0x7f02008c;
+        public static final int n_15=0x7f02008d;
+        public static final int n_16=0x7f02008e;
+        public static final int n_17=0x7f02008f;
+        public static final int n_18=0x7f020090;
+        public static final int n_19=0x7f020091;
+        public static final int n_20=0x7f020092;
+        public static final int n_21=0x7f020093;
+        public static final int n_22=0x7f020094;
+        public static final int n_23=0x7f020095;
+        public static final int n_24=0x7f020096;
+        public static final int n_25=0x7f020097;
+        public static final int n_26=0x7f020098;
+        public static final int n_27=0x7f020099;
+        public static final int n_28=0x7f02009a;
+        public static final int n_29=0x7f02009b;
+        public static final int n_30=0x7f02009c;
+        public static final int n_31=0x7f02009d;
+        public static final int n_32=0x7f02009e;
+        public static final int n_33=0x7f02009f;
+        public static final int pm=0x7f0200a0;
+        public static final int shidu=0x7f0200a1;
+        public static final int shuline=0x7f0200a2;
+        public static final int test=0x7f0200a3;
+        public static final int up=0x7f0200a4;
+        public static final int xsearch_loading=0x7f0200a5;
+        public static final int xsearch_msg_pull_arrow_down=0x7f0200a6;
     }
     public static final class id {
         public static final int action_bar=0x7f05001c;
@@ -1212,9 +1236,9 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050024;
-        public static final int action_settings=0x7f05007d;
+        public static final int action_settings=0x7f050072;
         public static final int activity_chooser_view_content=0x7f050025;
-        public static final int add_city=0x7f05007e;
+        public static final int add_city=0x7f050073;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
         public static final int checkbox=0x7f05002d;
@@ -1267,18 +1291,7 @@ containing a value of this type.
         public static final int progress_circular=0x7f050018;
         public static final int progress_horizontal=0x7f050019;
         public static final int province_fragment=0x7f05003f;
-        public static final int pull_to_load_footer_content=0x7f050073;
-        public static final int pull_to_load_footer_hint_textview=0x7f050075;
-        public static final int pull_to_load_footer_progressbar=0x7f050074;
-        public static final int pull_to_refresh_header_arrow=0x7f05007b;
-        public static final int pull_to_refresh_header_content=0x7f050076;
-        public static final int pull_to_refresh_header_hint_textview=0x7f050078;
-        public static final int pull_to_refresh_header_progressbar=0x7f05007c;
-        public static final int pull_to_refresh_header_text=0x7f050077;
-        public static final int pull_to_refresh_header_time=0x7f05007a;
-        public static final int pull_to_refresh_last_update_time_text=0x7f050079;
-        public static final int pull_webview=0x7f050072;
-        public static final int quit=0x7f05007f;
+        public static final int quit=0x7f050074;
         public static final int radio=0x7f05002f;
         public static final int search_badge=0x7f050032;
         public static final int search_bar=0x7f050031;
@@ -1296,7 +1309,7 @@ containing a value of this type.
         public static final int showTitle=0x7f050006;
         public static final int split_action_bar=0x7f05001e;
         public static final int submit_area=0x7f050039;
-        public static final int sure=0x7f050080;
+        public static final int sure=0x7f050075;
         public static final int tabMode=0x7f050002;
         public static final int textView_compare_aaadate=0x7f05005d;
         public static final int textView_compare_aaatoday=0x7f050059;
@@ -1388,11 +1401,7 @@ containing a value of this type.
         public static final int fragment_navigation_drawer=0x7f03001c;
         public static final int item_city_list=0x7f03001d;
         public static final int list_select_city=0x7f03001e;
-        public static final int pull_refresh_webview=0x7f03001f;
-        public static final int pull_to_load_footer=0x7f030020;
-        public static final int pull_to_refresh_header=0x7f030021;
-        public static final int pull_to_refresh_header2=0x7f030022;
-        public static final int support_simple_spinner_dropdown_item=0x7f030023;
+        public static final int support_simple_spinner_dropdown_item=0x7f03001f;
     }
     public static final class menu {
         public static final int global=0x7f0c0000;
@@ -1400,8 +1409,8 @@ containing a value of this type.
         public static final int quit=0x7f0c0002;
     }
     public static final class string {
-        public static final int aaatoday=0x7f0a0034;
-        public static final int aatoday=0x7f0a0033;
+        public static final int aaatoday=0x7f0a0032;
+        public static final int aatoday=0x7f0a0031;
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
          */
         public static final int abc_action_bar_home_description=0x7f0a0001;
@@ -1442,17 +1451,17 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abc_shareactionprovider_share_with_application=0x7f0a000b;
-        public static final int action_settings=0x7f0a002a;
-        public static final int add_city=0x7f0a0029;
+        public static final int action_settings=0x7f0a0028;
+        public static final int add_city=0x7f0a0027;
         public static final int app_name=0x7f0a0023;
-        public static final int atoday=0x7f0a0030;
-        public static final int city_add_success=0x7f0a0037;
-        public static final int city_already_exists=0x7f0a0036;
-        public static final int city_exceed_num=0x7f0a0035;
-        public static final int des=0x7f0a002c;
-        public static final int navigation_drawer_close=0x7f0a0028;
-        public static final int navigation_drawer_open=0x7f0a0027;
-        public static final int none=0x7f0a002b;
+        public static final int atoday=0x7f0a002e;
+        public static final int city_add_success=0x7f0a0035;
+        public static final int city_already_exists=0x7f0a0034;
+        public static final int city_exceed_num=0x7f0a0033;
+        public static final int des=0x7f0a002a;
+        public static final int navigation_drawer_close=0x7f0a0026;
+        public static final int navigation_drawer_open=0x7f0a0025;
+        public static final int none=0x7f0a0029;
         /**  加载中提示 
          */
         public static final int picture_image_loading=0x7f0a0015;
@@ -1465,7 +1474,7 @@ containing a value of this type.
         /**  图片保存的文字 
          */
         public static final int picture_save_succeed=0x7f0a001f;
-        public static final int pm=0x7f0a0032;
+        public static final int pm=0x7f0a0030;
         public static final int pull_to_refresh_footer_hint_ready=0x7f0a001b;
         public static final int pull_to_refresh_header_hint_loading=0x7f0a0019;
         /**  下拉刷新和上拉加载更多的文本 
@@ -1483,15 +1492,13 @@ containing a value of this type.
         public static final int pushmsg_center_pull_down_update_time=0x7f0a0011;
         public static final int pushmsg_center_pull_release_text=0x7f0a0010;
         public static final int pushmsg_center_pull_up_text=0x7f0a000e;
-        public static final int quit=0x7f0a0038;
-        public static final int select_city=0x7f0a002d;
-        public static final int sure=0x7f0a0039;
+        public static final int quit=0x7f0a0036;
+        public static final int select_city=0x7f0a002b;
+        public static final int sunshine=0x7f0a002c;
+        public static final int sure=0x7f0a0037;
         public static final int title_section1=0x7f0a0024;
-        public static final int title_section2=0x7f0a0025;
-        public static final int title_section3=0x7f0a0026;
-        public static final int today=0x7f0a002f;
-        public static final int wet=0x7f0a002e;
-        public static final int wind=0x7f0a0031;
+        public static final int today=0x7f0a002d;
+        public static final int wind=0x7f0a002f;
         public static final int xsearch_loading=0x7f0a0013;
     }
     public static final class style {

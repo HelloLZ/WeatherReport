@@ -7,6 +7,7 @@ import com.ustcweather.amarishappilees.db.DataBase;
 import com.ustcweather.amarishappilees.http.DecodeJson;
 import com.ustcweather.amarishappilees.http.HttpOperate;
 import com.ustcweather.amarishappilees.ui.ChartView;
+import com.ustcweather.amarishappilees.weatherinfo.CurrentTime;
 import com.ustcweather.amarishappilees.weatherinfo.WeatherIcon;
 import com.ustcweather.amarishappilees.weatherinfo.WeatherRelativeInfo;
 
@@ -52,7 +53,7 @@ public class MainActivity extends ActionBarActivity implements
 
 	private static TextView textWindKind;
 	private static TextView textPm;
-	// private static TextView textWetValue;
+	private static TextView textSunValue;
 	private static TextView textWindValue;
 	private static TextView textPmValue;
 
@@ -74,6 +75,7 @@ public class MainActivity extends ActionBarActivity implements
 	private static LinearLayout lineLayoutUp;
 	private static LinearLayout lineLayoutDown;
 	private static String httpGetString;
+	private static WeatherRelativeInfo weatherReInfo = new WeatherRelativeInfo();
 
 	private static ImageView bigWeather;
 	private static ImageView todayWeatherUp;
@@ -85,7 +87,9 @@ public class MainActivity extends ActionBarActivity implements
 	private static ImageView atomorrowWeatherDown;
 	private static ImageView lastWeatherDown;
 
-	private String city = "À’÷›";
+	private CurrentTime time = new CurrentTime();
+
+	private static String city = "";
 	private static ExecutorService LIMITED_TASK_EXECUTOR = (ExecutorService) Executors
 			.newFixedThreadPool(7);
 	static final int SEND_CITY_REQUEST = 0;
@@ -108,90 +112,111 @@ public class MainActivity extends ActionBarActivity implements
 
 		@Override
 		protected String[] doInBackground(String... params) {
-
 			httpGetString = HttpOperate.getWeatherInformation(city);
-			if (!httpGetString.isEmpty()) {
-				WeatherRelativeInfo weatherReInfo = new WeatherRelativeInfo();
-				weatherReInfo = DecodeJson.getJsonInfo(httpGetString);
-				weatherInfo[0] = weatherReInfo.getTodayWeather();
-				String todayDate = weatherReInfo.getTodayDate();
-				weatherInfo[1] = todayDate;// .substring(14, 16);
+			if (httpGetString != null) {
+				if (!httpGetString.isEmpty()) {
+					weatherReInfo = DecodeJson.getJsonInfo(httpGetString);
+					if (weatherReInfo != null) {
+						weatherInfo[0] = weatherReInfo.getTodayWeather();
+						String todayDate = weatherReInfo.getTodayDate();
+						weatherInfo[1] = todayDate;// .substring(14, 16);
 
-				weatherInfo[2] = weatherReInfo.getTodayTemperaUp();
-				weatherInfo[3] = weatherReInfo.getTodayTemperaDown();
+						weatherInfo[2] = weatherReInfo.getTodayTemperaUp();
+						weatherInfo[3] = weatherReInfo.getTodayTemperaDown();
 
-				weatherInfo[4] = weatherReInfo.getTodayWindKind();
-				weatherInfo[18] = weatherReInfo.getTodayWindLevel();
-				weatherInfo[5] = weatherReInfo.getPm();
-				weatherInfo[19] = weatherReInfo.getPmLevel();
-				weatherInfo[6] = weatherReInfo.getAfTomoDate();
-				weatherInfo[7] = weatherReInfo.getLastDate();
+						weatherInfo[4] = weatherReInfo.getTodayWindKind();
+						weatherInfo[18] = weatherReInfo.getTodayWindLevel();
+						weatherInfo[5] = weatherReInfo.getPm();
+						weatherInfo[19] = weatherReInfo.getPmLevel();
+						weatherInfo[20] = weatherReInfo.getSunLevel();
+						weatherInfo[6] = weatherReInfo.getAfTomoDate();
+						weatherInfo[7] = weatherReInfo.getLastDate();
 
-				weatherInfo[8] = weatherReInfo.getTodayWeather();
-				weatherInfo[9] = weatherReInfo.getTomorrowWeather();
-				weatherInfo[10] = weatherReInfo.getAfTomoWeather();
-				weatherInfo[11] = weatherReInfo.getLastWeather();
+						weatherInfo[8] = weatherReInfo.getTodayWeather();
+						weatherInfo[9] = weatherReInfo.getTomorrowWeather();
+						weatherInfo[10] = weatherReInfo.getAfTomoWeather();
+						weatherInfo[11] = weatherReInfo.getLastWeather();
 
-				weatherInfo[12] = weatherReInfo.getTomorrowTemperaUp();
-				weatherInfo[13] = weatherReInfo.getTomorrowTemperaDown();
-				weatherInfo[14] = weatherReInfo.getAfTomoTemperaUp();
-				weatherInfo[15] = weatherReInfo.getAfTomoTemperaDown();
-				weatherInfo[16] = weatherReInfo.getLastTemperaUp();
-				weatherInfo[17] = weatherReInfo.getLastTemperaDown();
+						weatherInfo[12] = weatherReInfo.getTomorrowTemperaUp();
+						weatherInfo[13] = weatherReInfo
+								.getTomorrowTemperaDown();
+						weatherInfo[14] = weatherReInfo.getAfTomoTemperaUp();
+						weatherInfo[15] = weatherReInfo.getAfTomoTemperaDown();
+						weatherInfo[16] = weatherReInfo.getLastTemperaUp();
+						weatherInfo[17] = weatherReInfo.getLastTemperaDown();
+					}
+				}
 			}
-			return weatherInfo;
+			return params;
 		}
 
 		@Override
 		protected void onPostExecute(String[] result) {
 			WeatherIcon icon = new WeatherIcon();
-			if (!httpGetString.isEmpty()) {
-				textTodayTempera.setText(weatherInfo[1]);
-				textTodayWeather.setText(weatherInfo[0]);
-				textTodayUp.setText(weatherInfo[2]);
-				textTodayDown.setText(weatherInfo[3]);
+			if (httpGetString != null) {
+				if (!httpGetString.isEmpty() && weatherReInfo != null) {
+					textTodayTempera.setText(weatherInfo[1]);
+					textTodayWeather.setText(weatherInfo[0]);
+					textTodayUp.setText(weatherInfo[2]);
+					textTodayDown.setText(weatherInfo[3]);
 
-				textWindKind.setText(weatherInfo[4]);
-				textWindValue.setText(weatherInfo[18]);
-				textPm.setText(weatherInfo[19]);
-				textPmValue.setText(weatherInfo[5]);
+					textWindKind.setText(weatherInfo[4]);
+					textWindValue.setText(weatherInfo[18]);
+					textPm.setText(weatherInfo[19]);
+					textPmValue.setText(weatherInfo[5]);
+					textSunValue.setText(weatherInfo[20]);
 
-				textAAToday.setText(weatherInfo[6]);
-				textAAAToday.setText(weatherInfo[7]);
+					textAAToday.setText(weatherInfo[6]);
+					textAAAToday.setText(weatherInfo[7]);
 
-				textTodayDate.setText(weatherInfo[8]);
-				textATodayDate.setText(weatherInfo[9]);
-				textAATodayDate.setText(weatherInfo[10]);
-				textAAATodayDate.setText(weatherInfo[11]);
+					textTodayDate.setText(weatherInfo[8]);
+					textATodayDate.setText(weatherInfo[9]);
+					textAATodayDate.setText(weatherInfo[10]);
+					textAAATodayDate.setText(weatherInfo[11]);
 
-				textCTodayUp.setText(weatherInfo[2] + "°Ê");
-				textCTodayDown.setText(weatherInfo[3] + "°Ê");
-				textCATodayUp.setText(weatherInfo[12] + "°Ê");
-				textCATodayDown.setText(weatherInfo[13] + "°Ê");
-				textCAATodayUp.setText(weatherInfo[14] + "°Ê");
-				textCAATodayDown.setText(weatherInfo[15] + "°Ê");
-				textCAAATodayUp.setText(weatherInfo[16] + "°Ê");
-				textCAAATodayDown.setText(weatherInfo[17] + "°Ê");
+					textCTodayUp.setText(weatherInfo[2] + "°Ê");
+					textCTodayDown.setText(weatherInfo[3] + "°Ê");
+					textCATodayUp.setText(weatherInfo[12] + "°Ê");
+					textCATodayDown.setText(weatherInfo[13] + "°Ê");
+					textCAATodayUp.setText(weatherInfo[14] + "°Ê");
+					textCAATodayDown.setText(weatherInfo[15] + "°Ê");
+					textCAAATodayUp.setText(weatherInfo[16] + "°Ê");
+					textCAAATodayDown.setText(weatherInfo[17] + "°Ê");
 
-				addLine(lineLayoutUp, Double.parseDouble(weatherInfo[2]),
-						Double.parseDouble(weatherInfo[12]),
-						Double.parseDouble(weatherInfo[14]),
-						Double.parseDouble(weatherInfo[16]));
-				addLine(lineLayoutDown, Double.parseDouble(weatherInfo[3]),
-						Double.parseDouble(weatherInfo[13]),
-						Double.parseDouble(weatherInfo[15]),
-						Double.parseDouble(weatherInfo[17]));
-				
-				bigWeather.setImageResource(icon.getWeatherIcon(weatherInfo[0], false));
-				todayWeatherUp.setImageResource(icon.getWeatherIcon(weatherInfo[8], true));
-				todayWeatherDown.setImageResource(icon.getWeatherIcon(weatherInfo[8], false));
-				tomorrowWeatherUp.setImageResource(icon.getWeatherIcon(weatherInfo[9], true));
-				tomorrowWeatherDown.setImageResource(icon.getWeatherIcon( weatherInfo[9], false));
-				atomorrowWeatherUp.setImageResource(icon.getWeatherIcon(weatherInfo[10], true));
-				atomorrowWeatherDown.setImageResource(icon.getWeatherIcon(weatherInfo[10], false));
-				lastWeatherUp.setImageResource(icon.getWeatherIcon(weatherInfo[11], true));
-				lastWeatherDown.setImageResource(icon.getWeatherIcon(weatherInfo[11], false));
-				icon = null;
+					addLine(lineLayoutUp, Double.parseDouble(weatherInfo[2]),
+							Double.parseDouble(weatherInfo[12]),
+							Double.parseDouble(weatherInfo[14]),
+							Double.parseDouble(weatherInfo[16]));
+					addLine(lineLayoutDown, Double.parseDouble(weatherInfo[3]),
+							Double.parseDouble(weatherInfo[13]),
+							Double.parseDouble(weatherInfo[15]),
+							Double.parseDouble(weatherInfo[17]));
+
+					if (time.GetAmPm(getBaseContext()) == 0) {
+						bigWeather.setImageResource(icon.getWeatherIcon(
+								weatherInfo[0], true));
+					} else {
+						bigWeather.setImageResource(icon.getWeatherIcon(
+								weatherInfo[0], false));
+					}
+					todayWeatherUp.setImageResource(icon.getWeatherIcon(
+							weatherInfo[8], true));
+					todayWeatherDown.setImageResource(icon.getWeatherIcon(
+							weatherInfo[8], false));
+					tomorrowWeatherUp.setImageResource(icon.getWeatherIcon(
+							weatherInfo[9], true));
+					tomorrowWeatherDown.setImageResource(icon.getWeatherIcon(
+							weatherInfo[9], false));
+					atomorrowWeatherUp.setImageResource(icon.getWeatherIcon(
+							weatherInfo[10], true));
+					atomorrowWeatherDown.setImageResource(icon.getWeatherIcon(
+							weatherInfo[10], false));
+					lastWeatherUp.setImageResource(icon.getWeatherIcon(
+							weatherInfo[11], true));
+					lastWeatherDown.setImageResource(icon.getWeatherIcon(
+							weatherInfo[11], false));
+					icon = null;
+				}
 			}
 		}
 	}
@@ -269,6 +294,7 @@ public class MainActivity extends ActionBarActivity implements
 		case R.id.action_settings:
 			return true;
 		case R.id.add_city:
+			mNavigationDrawerFragment.setIsPush(true);
 			Intent intent = new Intent(MainActivity.this, CityActivity.class);
 			startActivityForResult(intent, SEND_CITY_REQUEST);
 			return true;
@@ -281,6 +307,8 @@ public class MainActivity extends ActionBarActivity implements
 			mNavigationDrawerFragment.showGlobalContextActionBar();
 		case R.id.sure:
 			mNavigationDrawerFragment.deleteMyCity();
+			mNavigationDrawerFragment.setIsPush(false);
+			mNavigationDrawerFragment.fresh();
 			return true;
 		}
 		/*
@@ -348,8 +376,8 @@ public class MainActivity extends ActionBarActivity implements
 					.findViewById(R.id.textView_today_down);
 			textWindKind = (TextView) rootView.findViewById(R.id.textView_wind);
 			textPm = (TextView) rootView.findViewById(R.id.textView_pm);
-			// textWetValue = (TextView)
-			// rootView.findViewById(R.id.textView_wet_value);
+			textSunValue = (TextView) rootView
+					.findViewById(R.id.textView_wet_value);
 			textWindValue = (TextView) rootView
 					.findViewById(R.id.textView_wind_value);
 			textPmValue = (TextView) rootView
@@ -404,7 +432,6 @@ public class MainActivity extends ActionBarActivity implements
 					.findViewById(R.id.imageView_down_aatoday);
 			lastWeatherDown = (ImageView) rootView
 					.findViewById(R.id.imageView_down_aaatoday);
-
 			return rootView;
 		}
 		/*

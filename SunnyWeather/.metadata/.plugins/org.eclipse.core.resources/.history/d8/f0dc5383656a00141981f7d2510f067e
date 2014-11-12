@@ -1,0 +1,29 @@
+package com.ustcweather.amarishappilees.weatherinfo;
+
+import java.util.Calendar;
+
+import android.content.ContentResolver;
+import android.content.Context;
+
+public class CurrentTime {
+
+	public CurrentTime() {
+
+	}
+
+	public int GetAmPm(Context context) {
+		ContentResolver cv = context.getContentResolver();
+		String strTimeFormat = android.provider.Settings.System.getString(cv,
+				android.provider.Settings.System.TIME_12_24);
+		if (strTimeFormat != null && strTimeFormat.equals("24")) {
+			return 0;
+		} else {
+			Calendar c = Calendar.getInstance();
+			if (c.get(Calendar.AM_PM) == 0) {
+				return 1;// AM
+			} else {
+				return 2;// PM
+			}
+		}
+	}
+}
