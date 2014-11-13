@@ -26,7 +26,6 @@
 <fullyQualifiedTypeName name="android.content.ContentValues"/>
 <fullyQualifiedTypeName name="android.widget.AdapterView.OnItemLongClickListener"/>
 <fullyQualifiedTypeName name="android.view.KeyEvent"/>
-<fullyQualifiedTypeName name="android.widget.Toast"/>
 <fullyQualifiedTypeName name="com.ustcweather.amarishappilees.R.menu"/>
 <fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
 <fullyQualifiedTypeName name="android.widget.CheckBox"/>
@@ -45,7 +44,6 @@
 <fullyQualifiedTypeName name="com.ustcweather.amarishappilees.R.layout"/>
 <fullyQualifiedTypeName name="com.ustcweather.amarishappilees.ui.ChartView"/>
 <fullyQualifiedTypeName name="android.media.Image"/>
-<fullyQualifiedTypeName name="com.ustcweather.amarishappilees.R.id"/>
 <fullyQualifiedTypeName name="android.widget.ImageView"/>
 <fullyQualifiedTypeName name="com.ustcweather.amarishappilees.R"/>
 <fullyQualifiedTypeName name="com.ustcweather.amarishappilees.R.drawable"/>
@@ -60,4 +58,6 @@
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="java.util.Locale"/>
 <fullyQualifiedTypeName name="com.ustcweather.amarishappilees.weatherinfo.CurrentTime"/>
+<fullyQualifiedTypeName name="android.widget.Toast"/>
+<fullyQualifiedTypeName name="com.ustcweather.amarishappilees.R.id"/>
 </qualifiedTypeNameHistroy>

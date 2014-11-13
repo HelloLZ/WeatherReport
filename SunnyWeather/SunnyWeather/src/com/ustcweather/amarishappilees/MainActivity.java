@@ -29,6 +29,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity implements
 		NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -215,6 +216,7 @@ public class MainActivity extends ActionBarActivity implements
 							weatherInfo[11], true));
 					lastWeatherDown.setImageResource(icon.getWeatherIcon(
 							weatherInfo[11], false));
+
 					icon = null;
 				}
 			}
@@ -292,6 +294,7 @@ public class MainActivity extends ActionBarActivity implements
 		int id = item.getItemId();
 		switch (id) {
 		case R.id.action_settings:
+			Toast.makeText(getBaseContext(), "天气数据由百度提供", Toast.LENGTH_SHORT).show();;
 			return true;
 		case R.id.add_city:
 			mNavigationDrawerFragment.setIsPush(true);
@@ -305,18 +308,18 @@ public class MainActivity extends ActionBarActivity implements
 			mNavigationDrawerFragment.getMenu().clear();
 			inflater.inflate(R.menu.global, mNavigationDrawerFragment.getMenu());
 			mNavigationDrawerFragment.showGlobalContextActionBar();
+			return true;
 		case R.id.sure:
 			mNavigationDrawerFragment.deleteMyCity();
 			mNavigationDrawerFragment.setIsPush(false);
 			mNavigationDrawerFragment.fresh();
 			return true;
+		case R.id.fresh:
+			mNavigationDrawerFragment.setIsPush(false);
+			getData();
+			Toast.makeText(getBaseContext(), "刷新成功", Toast.LENGTH_SHORT).show();
+			return true;
 		}
-		/*
-		 * if (id == R.id.action_settings) { return true; } if (item.getItemId()
-		 * == R.id.add_city) { Intent intent = new Intent(MainActivity.this,
-		 * CityActivity.class); startActivityForResult(intent,
-		 * SEND_CITY_REQUEST); return true; }
-		 */
 		return super.onOptionsItemSelected(item);
 	}
 

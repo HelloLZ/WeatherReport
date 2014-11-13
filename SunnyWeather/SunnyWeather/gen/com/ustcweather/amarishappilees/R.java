@@ -1219,10 +1219,11 @@ containing a value of this type.
         public static final int pm=0x7f0200a0;
         public static final int shidu=0x7f0200a1;
         public static final int shuline=0x7f0200a2;
-        public static final int test=0x7f0200a3;
-        public static final int up=0x7f0200a4;
-        public static final int xsearch_loading=0x7f0200a5;
-        public static final int xsearch_msg_pull_arrow_down=0x7f0200a6;
+        public static final int side=0x7f0200a3;
+        public static final int test=0x7f0200a4;
+        public static final int up=0x7f0200a5;
+        public static final int xsearch_loading=0x7f0200a6;
+        public static final int xsearch_msg_pull_arrow_down=0x7f0200a7;
     }
     public static final class id {
         public static final int action_bar=0x7f05001c;
@@ -1236,13 +1237,13 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050024;
-        public static final int action_settings=0x7f050072;
+        public static final int action_settings=0x7f050073;
         public static final int activity_chooser_view_content=0x7f050025;
-        public static final int add_city=0x7f050073;
+        public static final int add_city=0x7f050074;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
         public static final int checkbox=0x7f05002d;
-        public static final int checkbox_delect_mycity=0x7f050071;
+        public static final int checkbox_delect_mycity=0x7f050072;
         public static final int city_fragment=0x7f050040;
         public static final int collapseActionView=0x7f05000d;
         public static final int container=0x7f05003d;
@@ -1255,6 +1256,7 @@ containing a value of this type.
         public static final int end=0x7f050013;
         public static final int expand_activities_button=0x7f050026;
         public static final int expanded_menu=0x7f05002c;
+        public static final int fresh=0x7f050075;
         public static final int home=0x7f050014;
         public static final int homeAsUp=0x7f050005;
         public static final int icon=0x7f05002a;
@@ -1262,10 +1264,10 @@ containing a value of this type.
         public static final int image=0x7f050027;
         public static final int imageView_devide_v1=0x7f05004b;
         public static final int imageView_devide_v2=0x7f050055;
-        public static final int imageView_down_aaatoday=0x7f05006f;
-        public static final int imageView_down_aatoday=0x7f05006e;
-        public static final int imageView_down_atoday=0x7f05006d;
-        public static final int imageView_down_today=0x7f05006c;
+        public static final int imageView_down_aaatoday=0x7f050070;
+        public static final int imageView_down_aatoday=0x7f05006f;
+        public static final int imageView_down_atoday=0x7f05006e;
+        public static final int imageView_down_today=0x7f05006d;
         public static final int imageView_pm=0x7f050052;
         public static final int imageView_today_devide=0x7f050043;
         public static final int imageView_today_down=0x7f050046;
@@ -1277,7 +1279,8 @@ containing a value of this type.
         public static final int imageView_up_today=0x7f05005e;
         public static final int imageView_wet=0x7f05004c;
         public static final int imageView_wind=0x7f05004f;
-        public static final int layout_dataline_down=0x7f050067;
+        public static final int layout_dataline_down=0x7f050068;
+        public static final int layout_dataline_none=0x7f050067;
         public static final int layout_dataline_up=0x7f050066;
         public static final int linearLayout_middle=0x7f05004a;
         public static final int linearLayout_today=0x7f050041;
@@ -1291,7 +1294,7 @@ containing a value of this type.
         public static final int progress_circular=0x7f050018;
         public static final int progress_horizontal=0x7f050019;
         public static final int province_fragment=0x7f05003f;
-        public static final int quit=0x7f050074;
+        public static final int quit=0x7f050076;
         public static final int radio=0x7f05002f;
         public static final int search_badge=0x7f050032;
         public static final int search_bar=0x7f050031;
@@ -1309,7 +1312,7 @@ containing a value of this type.
         public static final int showTitle=0x7f050006;
         public static final int split_action_bar=0x7f05001e;
         public static final int submit_area=0x7f050039;
-        public static final int sure=0x7f050075;
+        public static final int sure=0x7f050077;
         public static final int tabMode=0x7f050002;
         public static final int textView_compare_aaadate=0x7f05005d;
         public static final int textView_compare_aaatoday=0x7f050059;
@@ -1319,11 +1322,11 @@ containing a value of this type.
         public static final int textView_compare_atoday=0x7f050057;
         public static final int textView_compare_date=0x7f05005a;
         public static final int textView_compare_today=0x7f050056;
-        public static final int textView_down_aaatoday=0x7f05006b;
-        public static final int textView_down_aatoday=0x7f05006a;
-        public static final int textView_down_atoday=0x7f050069;
-        public static final int textView_down_today=0x7f050068;
-        public static final int textView_mycity=0x7f050070;
+        public static final int textView_down_aaatoday=0x7f05006c;
+        public static final int textView_down_aatoday=0x7f05006b;
+        public static final int textView_down_atoday=0x7f05006a;
+        public static final int textView_down_today=0x7f050069;
+        public static final int textView_mycity=0x7f050071;
         public static final int textView_pm=0x7f050053;
         public static final int textView_pm_value=0x7f050054;
         public static final int textView_today_down=0x7f050047;
@@ -1459,6 +1462,7 @@ containing a value of this type.
         public static final int city_already_exists=0x7f0a0034;
         public static final int city_exceed_num=0x7f0a0033;
         public static final int des=0x7f0a002a;
+        public static final int fresh=0x7f0a0038;
         public static final int navigation_drawer_close=0x7f0a0026;
         public static final int navigation_drawer_open=0x7f0a0025;
         public static final int none=0x7f0a0029;

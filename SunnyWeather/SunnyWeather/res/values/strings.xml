@@ -22,5 +22,6 @@
     <string name="city_add_success">城市添加成功</string>
     <string name="quit">取消</string>
     <string name="sure">确定</string>
+    <string name="fresh">刷新</string>
 
 </resources>

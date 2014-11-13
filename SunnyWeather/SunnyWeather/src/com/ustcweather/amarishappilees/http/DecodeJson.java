@@ -9,7 +9,7 @@ import com.ustcweather.amarishappilees.weatherinfo.WeatherRelativeInfo;
 public class DecodeJson {
 
 	private static String todayTempera;
-	
+
 	public DecodeJson() {
 
 	}
@@ -23,17 +23,22 @@ public class DecodeJson {
 			if (jsonObj.getInt("error") != 0) {
 				return null;
 			}
-//			String status = jsonObj.getString("status");
+			// String status = jsonObj.getString("status");
 			String date = jsonObj.getString("date");
 
 			JSONArray results = jsonObj.getJSONArray("results");
 			JSONObject results0 = results.getJSONObject(0);
 			String currentCity = results0.getString("currentCity");
 			String pm = results0.getString("pm25");
-			JSONArray index = results0.getJSONArray("index");
-			JSONObject index4 = index.getJSONObject(5);
-			String sunLevel = index4.getString("zs");
-			
+			String sunLevel = null;
+			try {
+				JSONArray index = results0.getJSONArray("index");
+				JSONObject index4 = index.getJSONObject(5);
+				sunLevel = index4.getString("zs");
+			} catch (JSONException e) {
+				sunLevel = "未知";
+			}
+
 			/* Today weather information */
 			JSONArray weatherData = results0.getJSONArray("weather_data");
 			JSONObject weatherToday = weatherData.getJSONObject(0);
@@ -123,56 +128,50 @@ public class DecodeJson {
 		}
 		return tempera;
 	}
-	
+
 	private static String getTodayTempera(String todayDate) {
-		int position = todayDate.indexOf('：'); 
-		if(position == -1) {
+		int position = todayDate.indexOf('：');
+		if (position == -1) {
 			return getTemperaDown(todayTempera);
 		}
-		todayDate = todayDate.substring(position+1, todayDate.length()-2);
+		todayDate = todayDate.substring(position + 1, todayDate.length() - 2);
 		return todayDate;
 	}
-	
+
 	private static String getWindKind(String wind) {
 		int position = wind.indexOf('风');
-		wind = wind.substring(0, position+1);
+		wind = wind.substring(0, position + 1);
 		return wind;
 	}
-	
+
 	private static String getWindLevel(String wind) {
 		int position = wind.indexOf('风');
-		wind = wind.substring(position+1);
-		if(wind.isEmpty()){
+		wind = wind.substring(position + 1);
+		if (wind.isEmpty()) {
 			return "";
 		} else {
 			return wind;
 		}
 	}
-	
+
 	private static String getPmLevel(String pm) {
-		if(pm.isEmpty()) {
+		if (pm.isEmpty()) {
 			return "未知";
 		}
 		int level = Integer.parseInt(pm);
-		if(level > 300) {
+		if (level > 300) {
 			return "严重污染";
-		} 
-		else if(level >200) {
+		} else if (level > 200) {
 			return "重度污染";
-		}
-		else if(level >150) {
+		} else if (level > 150) {
 			return "中度污染";
-		}
-		else if(level >100) {
+		} else if (level > 100) {
 			return "轻度污染";
-		}
-		else if(level >50) {
+		} else if (level > 50) {
 			return "良";
-		}
-		else if(level >= 0) {
+		} else if (level >= 0) {
 			return "优";
-		}
-		else {
+		} else {
 			return "未知";
 		}
 	}

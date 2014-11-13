@@ -1,8 +1,0 @@
-package com.ustcweather.amarishappilees.ui;
-
-public class Snippet {
-	public static void main(String[] args) {
-		package com.ustcweather.amarishappilees.ui;
-	}
-}
-

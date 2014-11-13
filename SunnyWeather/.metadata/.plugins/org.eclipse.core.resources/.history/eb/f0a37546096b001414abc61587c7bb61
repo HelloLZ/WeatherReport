@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="45dp" >
+
+    <TextView
+        android:id="@+id/textView_mycity"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/checkbox_delect_mycity"
+        android:gravity="center|center_vertical"
+        android:typeface="monospace"
+        android:text="@string/none"
+        android:textColor="#999999"
+        android:textSize="20sp" />
+
+    <CheckBox
+        android:id="@+id/checkbox_delect_mycity"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@+id/textView_mycity"
+        android:layout_alignParentLeft="true"       
+        android:clickable="false"
+        android:focusable="false"
+        android:visibility="invisible" />
+
+</RelativeLayout>
